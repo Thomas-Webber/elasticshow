@@ -1,0 +1,16 @@
+[ignore]
+dist
+lib
+node_modules
+
+[include]
+packages/browser/src
+packages/dejavu-main/app
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]
