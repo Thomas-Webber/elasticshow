@@ -3,7 +3,7 @@ import { Layout, Modal, Skeleton } from 'antd';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { mediaMin } from '@divyanshu013/media';
-import {DataBrowser} from '@appbaseio/dejavu-browser';
+import DataBrowser from '@appbaseio/dejavu-browser';
 import {
 	Flex,
 	utils,

@@ -1,4 +1,5 @@
 # Frontastic: Simple elasticsearch data browser
+WORK IN PROGRESS <br>
 Simple elasticsearch data browser web-client.
 ## Features:
 - View of every elasticsearch indexes
