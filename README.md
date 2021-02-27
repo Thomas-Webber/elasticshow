@@ -38,6 +38,6 @@ http.cors.allow-credentials: true
 
 
 ## TODO
-build locally
-merge browser package to main
-trello improvment
+debug browser components
+integrate @appbaseio/reactivesearch dep
+improvments

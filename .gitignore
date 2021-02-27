@@ -78,3 +78,5 @@ typings/
 /dist
 out.js
 out.css
+
+.browser/
