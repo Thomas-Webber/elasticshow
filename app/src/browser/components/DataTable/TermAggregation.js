@@ -65,7 +65,7 @@ class TermAggregation extends React.Component<Props, State> {
 							innerClass={{
 								input: `ant-input ${css`
 									height: 32px;
-									background: ${colors.white} !important;
+									background: ${colors.white};
 								`}`,
 								checkbox: 'ant-checkbox-input',
 							}}
@@ -74,12 +74,12 @@ class TermAggregation extends React.Component<Props, State> {
 									alignItem="center"
 									wrap="nowrap"
 									justifyContent="space-between"
-									css={{
+									style={{
 										width: '100%',
 									}}
 								>
 									<span
-										css={{ maxWidth: 100 }}
+										style={{ maxWidth: 100 }}
 										className={overflowStyles}
 									>
 										{label}

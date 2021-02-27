@@ -70,7 +70,7 @@ class ObjectCell extends Component<Props, State> {
 		return (
 			<Fragment>
 				<CellStyled
-					css={{
+					style={{
 						display: 'flex',
 						alignItems: 'center',
 						justifyContent: 'space-between',
@@ -84,13 +84,13 @@ class ObjectCell extends Component<Props, State> {
 						}
 						trigger="click"
 					>
-						<span css={{ cursor: 'pointer' }}>{` {...} `}</span>
+						<span style={{ cursor: 'pointer' }}>{` {...} `}</span>
 					</Popover>
 					{mode === MODES.EDIT && (
 						<Icon
 							type="edit"
 							onClick={this.toggleModal}
-							css={{ cursor: 'pointer' }}
+							style={{ cursor: 'pointer' }}
 						/>
 					)}
 				</CellStyled>
@@ -112,7 +112,7 @@ class ObjectCell extends Component<Props, State> {
 						value={value}
 						height="auto"
 						width="100%"
-						css={{
+						style={{
 							minHeight: '300px',
 							maxHeight: '400px',
 						}}

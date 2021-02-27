@@ -10,7 +10,7 @@ const Summary = () => {
 		<div>
 			<Flex
 				justifyContent="space-around"
-				css={{
+				style={{
 					flexWrap: 'wrap',
 				}}
 			>

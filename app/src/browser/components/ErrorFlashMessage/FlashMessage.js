@@ -21,7 +21,7 @@ const FlashMessage = ({ error, onDismissError }: Props) => (
 				message={error.message}
 				type="error"
 				closable
-				css={{ marginBottom: 10 }}
+				style={{ marginBottom: 10 }}
 				onClose={onDismissError}
 				description={<ErrorMessage description={error.description} />}
 			/>

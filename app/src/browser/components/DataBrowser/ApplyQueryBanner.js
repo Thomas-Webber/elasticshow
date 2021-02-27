@@ -34,9 +34,9 @@ const ApplyQueryBanner = ({
 	<>
 		{applyQuery && (
 			<Alert
-				css={{ marginTop: 15 }}
+				style={{ marginTop: 15 }}
 				message={
-					<div css={{ textAlign: 'center' }}>
+					<div style={{ textAlign: 'center' }}>
 						All {numberWithCommas(stats.totalResults)} docs are
 						selected
 						<button
@@ -58,9 +58,9 @@ const ApplyQueryBanner = ({
 
 		{selectAll && (
 			<Alert
-				css={{ marginTop: 15 }}
+				style={{ marginTop: 15 }}
 				message={
-					<div css={{ textAlign: 'center' }}>
+					<div style={{ textAlign: 'center' }}>
 						All {selectedRows.length} docs from current page are
 						selected.{' '}
 						<button

@@ -68,7 +68,7 @@ class QueryExplorer extends Component<Props, State> {
 
 		return (
 			<section
-				css={{
+				style={{
 					'.ui-layout-pane': {
 						borderRadius: '3px',
 						borderColor: '#eee',

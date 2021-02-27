@@ -885,7 +885,7 @@ class Mappings extends Component {
 										}
 									>
 										<div
-											css={{
+											style={{
 												justifyContent: 'center',
 												alignItems: 'center',
 												width: 30,
@@ -950,7 +950,7 @@ class Mappings extends Component {
 								}
 							>
 								<div
-									css={{
+									style={{
 										...flex,
 										justifyContent: 'center',
 										width: 30,

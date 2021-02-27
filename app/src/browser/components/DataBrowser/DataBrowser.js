@@ -104,7 +104,7 @@ class DataBrowser extends Component<Props> {
 		return (
 			<Skeleton loading={isLoading} active>
 				{!isLoading && !isDataLoading && mappings && (
-					<div css={{ position: 'relative' }}>
+					<div style={{ position: 'relative' }}>
 						<ReactiveBase {...baseProps}>
 							<div>
 								<Actions onReload={this.handleReload} />
@@ -114,7 +114,7 @@ class DataBrowser extends Component<Props> {
 							<ApplyQueryBanner />
 							<div
 								id="result-list"
-								css={{
+								style={{
 									marginTop: 15,
 									border: `1px solid ${colors.tableBorderColor}`,
 									borderRadius: 3,
@@ -126,9 +126,9 @@ class DataBrowser extends Component<Props> {
 								}}
 							>
 								<AutoSizer
-									css={{
-										height: '100% !important',
-										width: '100% !important',
+									style={{
+										height: '100%',
+										width: '100%',
 									}}
 								>
 									{({ height, width }) => (
@@ -150,7 +150,7 @@ class DataBrowser extends Component<Props> {
 				)}
 				{mappings && (
 					<Flex
-						css={{
+						style={{
 							marginTop: 100,
 							[mediaMin.medium]: {
 								marginTop: 10,

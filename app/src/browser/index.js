@@ -31,7 +31,7 @@ const store = configureStore();
 
 function WithConfigProvider(props) {
 	return (
-		<ConfigProvider prefixCls="dejavu-browser">
+		<ConfigProvider prefixCls="ant">
 			{/* eslint-disable-next-line react/prop-types */}
 			{props.children}
 		</ConfigProvider>

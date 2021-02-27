@@ -27,7 +27,7 @@ type Props = {
 
 const Actions = ({ onReload, selectedRows, updatingRow }: Props) => (
 	<div
-		css={{
+		style={{
 			margin: '10px 0',
 			display: 'none',
 			[mediaMin.medium]: {
@@ -48,7 +48,7 @@ const Actions = ({ onReload, selectedRows, updatingRow }: Props) => (
 						<Button
 							icon="reload"
 							onClick={onReload}
-							css={{ marginRight: '5px' }}
+							style={{ marginRight: '5px' }}
 						>
 							Reload
 						</Button>
@@ -58,8 +58,8 @@ const Actions = ({ onReload, selectedRows, updatingRow }: Props) => (
 			</div>
 			<Flex alignItems="center">
 				<SelectedFilters
-					css={{
-						marginRight: '5px !important',
+					style={{
+						marginRight: '5px',
 					}}
 				/>
 				<SortFilter />

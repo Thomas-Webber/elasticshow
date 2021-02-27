@@ -7,7 +7,7 @@ type Props = {
 };
 
 const JsonView = ({ json }: Props) => (
-	<pre css={{ margin: 0 }}>{JSON.stringify(json, null, 2)}</pre>
+	<pre style={{ margin: 0 }}>{JSON.stringify(json, null, 2)}</pre>
 );
 
 JsonView.defaultProps = {

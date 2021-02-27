@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { mediaMin } from '@divyanshu013/media';
 import DataBrowser from './browser';
-import { css, cx, injectGlobal } from 'react-emotion';
 import {
 	Flex,
 	utils,
@@ -113,25 +112,25 @@ class App extends Component {
 						{isShowingSideBar && (
 							<Sider
 								theme="light"
-								css={{display: 'block'}}
+								style={{display: 'block'}}
 							>
 								{/* <img
 									src={logo}
 									alt="Dejavu"
 									width="100%"
-									css={{ padding: 25 }}
+									style={{ padding: 25 }}
 								/> */}
 								<Navigation />
 							</Sider>
 						)}
-						<Layout css={{ overflowX: 'hidden !important' }}>
+						<Layout style={{ overflowX: 'hidden !important' }}>
 							<Content
-								css={{
+								style={{
 									margin: isShowingSideBar ? '15px 25px' : 0,
 									height: isShowingFooter ? '95%' : '100%',
 								}}
 							>
-								<div css={{padding: 20, background: '#fff'}}>
+								<div style={{padding: 20, background: '#fff'}}>
 									<Switch>
 										<Route
 											exact

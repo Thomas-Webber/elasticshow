@@ -166,7 +166,7 @@ class ResultSet extends React.Component<Props, State> {
 							right: 40,
 							zIndex: 105,
 							'.active': {
-								backgroundColor: `${colors.primary} !important`,
+								backgroundColor: `${colors.primary}`,
 							},
 						}),
 					}}
@@ -190,7 +190,7 @@ class ResultSet extends React.Component<Props, State> {
 						<Flex
 							justifyContent="center"
 							alignItems="center"
-							css={{
+							style={{
 								display: 'none',
 								[mediaMin.medium]: {
 									display: 'block',
@@ -228,7 +228,7 @@ class ResultSet extends React.Component<Props, State> {
 							{loading && (
 								<InfoContainer
 									justifyContent="center"
-									css={{
+									style={{
 										zIndex: 1000,
 									}}
 									id="spinner"

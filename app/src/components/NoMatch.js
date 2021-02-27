@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const NoMatch = () => (
 	<section
-		css={{
+		style={{
 			display: 'flex',
 			flexDirection: 'column',
 			justifyContent: 'center',

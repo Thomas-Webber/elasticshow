@@ -105,7 +105,7 @@ class DataGrid extends Component<Props, State> {
 				style={style}
 				mode={mode}
 				key={key}
-				css={{ width: '100%', background: colors.tableHead }}
+				style={{ width: '100%', background: colors.tableHead }}
 			>
 				<IdField
 					rowIndex={rowIndex}
@@ -194,13 +194,13 @@ class DataGrid extends Component<Props, State> {
 								columnCount={1}
 								height={height - HEIGHT_BUFFER}
 								rowHeight={mode === MODES.EDIT ? 45 : 30}
-								css={{
-									zIndex: '101 !important',
+								style={{
+									zIndex: '101',
 									left: 0,
 									position: 'absolute',
 									backgroundColor: colors.tableHead,
 									outline: 0,
-									overflow: 'hidden !important',
+									overflow: 'hidden',
 								}}
 								rowCount={data.length}
 								scrollTop={scrollTop}

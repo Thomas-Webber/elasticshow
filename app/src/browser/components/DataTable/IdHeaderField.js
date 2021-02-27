@@ -77,11 +77,11 @@ class IdHeaderField extends PureComponent<Props> {
 		const currentPage = parseInt(results || 1, 10);
 		return (
 			<StyledCell
-				css={{
+				style={{
 					background: colors.tableHead,
 					width: 120,
 					fontWeight: 'bold',
-					zIndex: '101 !important',
+					zIndex: '101',
 					left: 0,
 					top: 0,
 					position: 'sticky',
@@ -92,21 +92,21 @@ class IdHeaderField extends PureComponent<Props> {
 				}}
 			>
 				<Flex
-					css={{
+					style={{
 						width: '100%',
 					}}
 					alignItems="center"
 					justifyContent="left"
 					wrap="nowrap"
 				>
-					<div css={{ visibility: 'hidden' }}>
+					<div style={{ visibility: 'hidden' }}>
 						{pageSize * (currentPage - 1) + pageSize}
 					</div>
 					{mode === MODES.EDIT && (
 						<Checkbox
 							onChange={this.handleSelectAllRows}
 							checked={selectAll || applyQuery}
-							css={{
+							style={{
 								marginLeft: 7,
 							}}
 						/>
@@ -120,7 +120,7 @@ class IdHeaderField extends PureComponent<Props> {
 						trigger="click"
 					>
 						<span
-							css={{
+							style={{
 								cursor: 'pointer',
 								margin: '0 7px',
 							}}
@@ -129,7 +129,7 @@ class IdHeaderField extends PureComponent<Props> {
 					<div css={overflowText}>
 						_id
 						<i
-							css={{
+							style={{
 								fontSize: 12,
 								fontWeight: 'normal',
 							}}

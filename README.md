@@ -19,9 +19,8 @@ This repository is originally a fork of appbaseio/dejavu with the following phil
 docker run -p 1342:1342 -d appbaseio/dejavu
 open http://localhost:1342/
 ```
-### Cross-origin resource sharing (CORS)
-To make sure you enable CORS settings for your Elasticsearch instance, add the following lines in the `elasticsearch.yml` configuration file.
-
+### Elasticsearch CORS configurations
+CORS settings for your Elasticsearch instance must be configured in the `elasticsearch.yml` configuration file.
 ```yaml
 http.port: 9200
 http.cors.allow-origin: 'http://localhost:1342'
@@ -31,13 +30,20 @@ http.cors.allow-credentials: true
 ```
 
 ## Development
-1. Run `yarn` after cloning the repo to install dependencies
-2. Run `yarn dev:browser` which starts the `watcher` under `packages/browser` package i.e. `@appbaseio/dejavu-browser`.
-3. Run `yarn dev:dejavu` which starts the `webpack-dev-server` on port `1342`
-4. Run `yarn format` to run prettier on `*.js` files.
+1. Run `yarn` to install the dependencies
+2. Run `./dev.sh` to compile the app, watch for changes and run a dev server on port 1358
 
 
 ## TODO
-debug browser components
-integrate @appbaseio/reactivesearch dep
-improvments
+Features:
+- debug browser components
+- date filter
+- read only view
+- logout+indexes navigation
+- docker
+
+Optimizations:
+- integrate @appbaseio/reactivesearch dep
+- upgrade react version
+- antd upgrade https://ant.design/docs/react/migration-v4
+- remove momentjs https://ant.design/docs/react/replace-moment

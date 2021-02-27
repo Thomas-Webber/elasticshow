@@ -223,7 +223,7 @@ class MultipleUpdate extends Component<Props, State> {
 				<Button
 					icon="edit"
 					type="primary"
-					css={{
+					style={{
 						margin: '0 3px',
 					}}
 					onClick={this.toggleModal}
@@ -240,7 +240,7 @@ class MultipleUpdate extends Component<Props, State> {
 							? numberWithCommas(stats.totalResults)
 							: selectedIds.length
 					} docs selected)`}
-					css={{
+					style={{
 						top: '10px',
 					}}
 					className={labelStyles}
@@ -253,7 +253,7 @@ class MultipleUpdate extends Component<Props, State> {
 							<Flex
 								justifyContent="flex-end"
 								alignItems="center"
-								css={{
+								style={{
 									marginRight: 25,
 									height: properties[item.field] ? 'auto' : 0,
 								}}
@@ -268,7 +268,7 @@ class MultipleUpdate extends Component<Props, State> {
 								)}
 							</Flex>
 							<Flex alignItems="center">
-								<div css={{ flex: 1, marginLeft: 5 }}>
+								<div style={{ flex: 1, marginLeft: 5 }}>
 									<Select
 										showSearch
 										placeholder="Field"
@@ -282,7 +282,7 @@ class MultipleUpdate extends Component<Props, State> {
 												.indexOf(input.toLowerCase()) >=
 											0
 										}
-										css={{
+										style={{
 											width: '90%',
 										}}
 									>
@@ -304,14 +304,14 @@ class MultipleUpdate extends Component<Props, State> {
 									</Select>
 								</div>
 								<div
-									css={{
+									style={{
 										flex: 1,
 										marginLeft: 10,
 									}}
 								>
 									{item.field ? (
 										<div
-											css={{
+											style={{
 												border: `1px solid ${colors.tableBorderColor}`,
 												borderRadius: 3,
 												padding: '5px 7px',
@@ -337,7 +337,7 @@ class MultipleUpdate extends Component<Props, State> {
 									)}
 								</div>
 								<div
-									css={{
+									style={{
 										marginLeft: 10,
 										minWidth: 15,
 									}}
@@ -348,7 +348,7 @@ class MultipleUpdate extends Component<Props, State> {
 											onClick={() =>
 												this.handleRemoveData(i)
 											}
-											css={{
+											style={{
 												cursor: 'pointer',
 											}}
 										/>
@@ -360,14 +360,14 @@ class MultipleUpdate extends Component<Props, State> {
 
 					<Flex
 						justifyContent="space-between"
-						css={{
+						style={{
 							marginTop: 25,
 						}}
 					>
 						<Button
 							icon="plus"
 							type="primary"
-							css={{
+							style={{
 								marginLeft: 5,
 							}}
 							onClick={this.handleAddMoreFields}

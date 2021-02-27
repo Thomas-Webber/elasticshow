@@ -82,7 +82,7 @@ class GlobalSearch extends Component<Props, State> {
 		const { searchValue, hasMounted } = this.state;
 
 		return (
-			<div css={{ position: 'relative' }}>
+			<div style={{ position: 'relative' }}>
 				{hasMounted && (
 					<DataSearch
 						componentId="GlobalSearch"
@@ -91,9 +91,9 @@ class GlobalSearch extends Component<Props, State> {
 						fieldWeights={weights}
 						innerClass={{
 							input: `ant-input ${css`
-								padding-left: 35px !important;
-								height: 32px !important;
-								background: #fff !important;
+								padding-left: 35px;
+								height: 32px;
+								background: #fff;
 							`}`,
 						}}
 						debounce={5}
@@ -106,7 +106,7 @@ class GlobalSearch extends Component<Props, State> {
 				)}
 				<Icon
 					type="search"
-					css={{
+					style={{
 						position: 'absolute',
 						top: '50%',
 						transform: 'translateY(-50%)',

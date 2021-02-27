@@ -84,7 +84,7 @@ class DeleteRows extends Component<Props> {
 				cancelText="No"
 			>
 				<Button
-					css={{ marginRight: '5px' }}
+					style={{ marginRight: '5px' }}
 					type="danger"
 					icon="delete"
 				>

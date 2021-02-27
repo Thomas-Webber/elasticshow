@@ -109,7 +109,7 @@ const MonitoringContainer = ({
 				<>
 					{data.hasMetricbeat ? (
 						<div
-							css={{
+							style={{
 								width: '100%',
 								maxWidth: 1300,
 								margin: '0 auto',

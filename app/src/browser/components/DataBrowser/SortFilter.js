@@ -26,7 +26,7 @@ const SortFiler = ({ field, order, onResetSort }: Props) => (
 		{field !== '_score' && (
 			<Flex
 				alignItems="center"
-				css={{
+				style={{
 					marginRight: 5,
 					background: colors.background,
 					minHeight: 30,
@@ -49,7 +49,7 @@ const SortFiler = ({ field, order, onResetSort }: Props) => (
 					icon={order === 'asc' ? faSortAlphaUp : faSortAlphaDown}
 				/>
 				<span
-					css={{
+					style={{
 						padding: '0 8px',
 						maxWidth: '80%',
 					}}
@@ -59,7 +59,7 @@ const SortFiler = ({ field, order, onResetSort }: Props) => (
 				</span>
 				<button
 					type="button"
-					css={{
+					style={{
 						outline: 0,
 						border: 0,
 						cursor: 'pointer',

@@ -68,7 +68,7 @@ class IdField extends Component<Props> {
 		const currentPage = parseInt(results || 1, 10);
 
 		return (
-			<Flex wrap="nowrap" css={{ width: '100%' }} alignItems="center">
+			<Flex wrap="nowrap" style={{ width: '100%' }} alignItems="center">
 				<div>
 					{convertToMax(
 						pageSize * (currentPage - 1) + (rowIndex + 1),
@@ -80,7 +80,7 @@ class IdField extends Component<Props> {
 						onChange={this.handleRowSelectChange}
 						value={value}
 						checked={selectedRows.indexOf(value) > -1}
-						css={{
+						style={{
 							marginLeft: 8,
 						}}
 					/>
@@ -94,7 +94,7 @@ class IdField extends Component<Props> {
 					trigger="click"
 				>
 					<span
-						css={{
+						style={{
 							cursor: 'pointer',
 							margin: '0 7px',
 						}}
@@ -106,7 +106,7 @@ class IdField extends Component<Props> {
 					trigger="click"
 				>
 					<div
-						css={{
+						style={{
 							cursor: 'pointer',
 							...overflowText,
 						}}

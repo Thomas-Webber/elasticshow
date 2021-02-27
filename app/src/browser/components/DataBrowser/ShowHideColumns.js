@@ -149,7 +149,7 @@ class ShowHideColumns extends Component<Props, State> {
 				placement="bottomRight"
 				overlay={
 					<div
-						css={{
+						style={{
 							background: colors.white,
 							borderRadius: 4,
 							padding: 10,
@@ -167,9 +167,9 @@ class ShowHideColumns extends Component<Props, State> {
 								columns.length < allMappingColumns.length &&
 								columns.length
 							}
-							css={{
-								marginBottom: '5px !important',
-								fontWeight: 'bold !important',
+							style={{
+								marginBottom: '5px',
+								fontWeight: 'bold',
 							}}
 							onChange={this.handleSelectAll}
 						>
@@ -177,9 +177,9 @@ class ShowHideColumns extends Component<Props, State> {
 						</Checkbox>
 						<Group
 							options={allMappingColumns}
-							css={{
-								display: 'grid !important',
-								gridGap: '5px !important',
+							style={{
+								display: 'grid',
+								gridGap: '5px',
 							}}
 							value={columns}
 							onChange={this.handleVisibleColumnsChange}
@@ -191,10 +191,10 @@ class ShowHideColumns extends Component<Props, State> {
 				onClick={this.toggleDropDown}
 			>
 				<Button
-					css={{
+					style={{
 						marginLeft: '5px',
 						'.anticon': {
-							fontSize: '18px !important',
+							fontSize: '18px',
 						},
 					}}
 					id="show-hide-button"

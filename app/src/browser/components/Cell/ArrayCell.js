@@ -49,21 +49,21 @@ class ArrayCell extends Component<Props, State> {
 				{mode === MODES.EDIT ? (
 					<Select
 						value={data.map(item => item.toString())}
-						css={{
+						style={{
 							width: '100%',
 							height: '100%',
 							display: 'flex',
 							justifyContent: 'left',
 							alignItems: 'center',
-							'.dejavu-browser-select-selection': {
+							'.antd-select-selection': {
 								borderColor: 'transparent',
 								height: '100%',
 								width: '100%',
 							},
-							'.dejavu-browser-select-selection__choice': {
+							'.antd-select-selection__choice': {
 								height: '100%',
 							},
-							'.dejavu-browser-select': {
+							'.antd-select': {
 								width: '100%',
 							},
 						}}
@@ -91,7 +91,7 @@ class ArrayCell extends Component<Props, State> {
 							}
 							trigger="click"
 						>
-							<span css={{ cursor: 'pointer' }}> [...] </span>
+							<span style={{ cursor: 'pointer' }}> [...] </span>
 						</Popover>
 					)
 				)}

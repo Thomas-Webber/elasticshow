@@ -4,7 +4,6 @@
 	--loader:.js=tsx --loader:.svg=text \
 	--target=chrome58,firefox57,safari11,edge16 \
 	--define:process.env.NODE_ENV=\"development\" \
-	--define:process.env.VERSION=\"3.2.2\" \
 	--define:global=window \
 	--sourcemap \
 	--servedir=web/ \

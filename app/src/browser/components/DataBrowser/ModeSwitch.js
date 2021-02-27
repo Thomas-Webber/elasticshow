@@ -41,18 +41,13 @@ class ModeSwitch extends Component<Props> {
 			<Select
 				value={mode}
 				onChange={this.handleModeChange}
-				css={{
-					'.dejavu-browser-select-selection': {
+				style={{
 						backgroundColor: `${
 							mode === MODES.VIEW
 								? colors.viewing
 								: colors.editing
 						}`,
 						color: `${colors.white}`,
-					},
-					'.dejavu-browser-select-arrow': {
-						color: `${colors.white}`,
-					},
 				}}
 			>
 				<Option value="view">

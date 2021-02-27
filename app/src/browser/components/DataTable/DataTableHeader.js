@@ -37,7 +37,7 @@ const DataTableHeader = ({
 		return (
 			<Flex
 				wrap="nowrap"
-				css={{
+				style={{
 					zIndex: 100,
 					position: 'relative',
 					overflow: 'hidden',

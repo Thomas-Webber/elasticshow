@@ -118,7 +118,7 @@ class UpdateRowModal extends Component<Props, State> {
 				<Button
 					icon="edit"
 					type="primary"
-					css={{
+					style={{
 						margin: '0 3px',
 					}}
 					onClick={this.toggleModal}
@@ -133,14 +133,14 @@ class UpdateRowModal extends Component<Props, State> {
 					onOk={this.handleSubmit}
 					okButtonProps={{ disabled: dataError }}
 					destroyOnClose
-					css={{
+					style={{
 						top: '10px',
 					}}
 					maskClosable={false}
 				>
 					<Row>
 						<Col span={12}>
-							<Item label="Index" css={{ marginRight: '10px' }}>
+							<Item label="Index" style={{ marginRight: '10px' }}>
 								<Input name="index" value={index} disabled />
 							</Item>
 						</Col>
@@ -168,7 +168,7 @@ class UpdateRowModal extends Component<Props, State> {
 						value={jsonValue}
 						height="auto"
 						width="100%"
-						css={{
+						style={{
 							minHeight: '200px',
 							maxHeight: '300px',
 						}}

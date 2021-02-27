@@ -311,7 +311,7 @@ class ExportData extends Component<Props, State> {
 			<Fragment>
 				<Button
 					icon="download"
-					css={{ marginRight: '5px' }}
+					style={{ marginRight: '5px' }}
 					onClick={this.toggleModal}
 				>
 					Export
@@ -349,7 +349,7 @@ class ExportData extends Component<Props, State> {
 								<Select
 									defaultValue={selectedIndex}
 									onChange={this.handleIndexChange}
-									css={{
+									style={{
 										width: '95%',
 									}}
 								>
@@ -366,7 +366,7 @@ class ExportData extends Component<Props, State> {
 								<Select
 									value={selectedType}
 									onChange={this.handleTypeChange}
-									css={{
+									style={{
 										width: '100%',
 									}}
 								>
@@ -406,7 +406,7 @@ class ExportData extends Component<Props, State> {
 								To export from beginning,{' '}
 								<span
 									onClick={this.resetSelectedChunk}
-									css={{
+									style={{
 										color: colors.primary,
 										cursor: 'pointer',
 									}}
@@ -427,7 +427,7 @@ class ExportData extends Component<Props, State> {
 								alignItems="center"
 								justifyContent="center"
 							>
-								<Spin css={{ marginBottom: '20px' }} />
+								<Spin style={{ marginBottom: '20px' }} />
 							</Flex>
 						)}
 						<br />
@@ -438,14 +438,14 @@ class ExportData extends Component<Props, State> {
 								alignItems="center"
 								justifyContent="center"
 							>
-								<Spin css={{ marginBottom: '20px' }} />
+								<Spin style={{ marginBottom: '20px' }} />
 								We are fetching the result data, please wait...
 							</Flex>
 						)}
 						<Checkbox
 							checked={applyCurrentQuery}
 							onChange={this.handleApplyQueryChange}
-							css={{
+							style={{
 								width: '100%',
 							}}
 						>

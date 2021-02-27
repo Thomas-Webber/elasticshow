@@ -248,7 +248,7 @@ class AddFieldModal extends Component<Props, State> {
 					icon="plus"
 					type="primary"
 					onClick={this.toggleModal}
-					css={{ marginLeft: 10 }}
+					style={{ marginLeft: 10 }}
 				>
 					Add Mapping
 				</Button>
@@ -267,7 +267,7 @@ class AddFieldModal extends Component<Props, State> {
 							!selectedPrimitiveType ||
 							isProcessing,
 					}}
-					css={{
+					style={{
 						top: '10px',
 					}}
 					className={labelStyles}
@@ -281,7 +281,7 @@ class AddFieldModal extends Component<Props, State> {
 								<Select
 									defaultValue={selectedIndex}
 									onChange={this.handleIndexChange}
-									css={{
+									style={{
 										width: '95%',
 									}}
 								>
@@ -298,7 +298,7 @@ class AddFieldModal extends Component<Props, State> {
 								<Select
 									value={selectedType}
 									onChange={this.handleTypeChange}
-									css={{
+									style={{
 										width: '100%',
 									}}
 								>
@@ -341,7 +341,7 @@ class AddFieldModal extends Component<Props, State> {
 							<Select
 								defaultValue={selectedPrimitiveType}
 								onChange={this.handlePrimitiveTypeChange}
-								css={{
+								style={{
 									width: '100%',
 								}}
 							>
@@ -365,7 +365,7 @@ class AddFieldModal extends Component<Props, State> {
 								value={addColumnMapping}
 								height="auto"
 								width="100%"
-								css={{
+								style={{
 									minHeight: '100px',
 									maxHeight: '200px',
 								}}

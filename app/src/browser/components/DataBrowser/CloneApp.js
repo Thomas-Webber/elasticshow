@@ -26,7 +26,7 @@ const CloneApp = ({ appname, rawUrl, isConnected }: Props) => {
 				icon="fork"
 				type="primary"
 				href={getCloneLink(appname, rawUrl)}
-				css={{ marginRight: 10 }}
+				style={{ marginRight: 10 }}
 			>
 				{' '}
 				Clone This App

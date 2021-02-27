@@ -105,13 +105,13 @@ class DataColumnHeader extends Component<Props> {
 		if (mappings) {
 			return (
 				<StyledCell
-					css={{ background: colors.tableHead, fontWeight: 'bold' }}
+					style={{ background: colors.tableHead, fontWeight: 'bold' }}
 				>
 					<Flex
 						justifyContent="space-between"
 						alignItems="center"
 						wrap="nowrap"
-						css={{
+						style={{
 							width: '100%',
 						}}
 					>
@@ -127,7 +127,7 @@ class DataColumnHeader extends Component<Props> {
 								)}
 							<Popover content={col} trigger="click">
 								<span
-									css={{
+									style={{
 										marginLeft: '10px',
 										cursor: 'pointer',
 										maxWidth: 120,
@@ -170,7 +170,7 @@ class DataColumnHeader extends Component<Props> {
 											],
 										);
 									}}
-									css={{
+									style={{
 										outline: 0,
 										height: '15px',
 										width: '15px',
@@ -183,7 +183,7 @@ class DataColumnHeader extends Component<Props> {
 									{sortField.indexOf(col) === -1 && (
 										<FontAwesomeIcon
 											icon={faSort}
-											css={{
+											style={{
 												fontSize: 15,
 											}}
 										/>
@@ -192,17 +192,17 @@ class DataColumnHeader extends Component<Props> {
 										(sortOrder === 'asc' ? (
 											<FontAwesomeIcon
 												icon={faCaretUp}
-												css={{
+												style={{
 													fontSize: 15,
-													color: '#333 !important',
+													color: '#333',
 												}}
 											/>
 										) : (
 											<FontAwesomeIcon
 												icon={faCaretDown}
-												css={{
+												style={{
 													fontSize: 15,
-													color: '#333 !important',
+													color: '#333',
 												}}
 											/>
 										))}

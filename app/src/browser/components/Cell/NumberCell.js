@@ -60,12 +60,12 @@ class NumberCell extends Component<Props, State> {
 						role="Gridcell"
 						value={value}
 						onChange={this.handleChange}
-						css={{
+						style={{
 							height: '100% important',
-							width: '100% !important',
+							width: '100%',
 							border: `${
 								shouldAutoFocus ? 'none' : 'auto'
-							} !important`,
+							}`,
 						}}
 						onBlur={this.saveChange}
 					/>

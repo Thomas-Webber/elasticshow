@@ -455,11 +455,11 @@ class ConnectApp extends Component<Props, State> {
 						<Flex alignItems="center">
 							<Item
 								{...formItemProps}
-								css={{ [mediaMin.medium]: { flex: 1 } }}
+								style={{ [mediaMin.medium]: { flex: 1 } }}
 							>
-								<Group
+								<Group className="mygrouphere"
+									style={{ display: 'flex' }}
 									compact
-									css={{ display: 'flex !important' }}
 								>
 									<Input
 										name="url"
@@ -468,19 +468,19 @@ class ConnectApp extends Component<Props, State> {
 										onChange={this.handleChange}
 										disabled={isConnected}
 										required
-										css={{
+										style={{
 											color:
 												isUrlHidden &&
 												isConnected &&
-												'transparent !important',
+												'transparent',
 										}}
 									/>
 									<Button
-										css={{
+										style={{
 											cursor: 'pointer',
 											'&:hover': {
 												borderColor:
-													'#d9d9d9 !important',
+													'#d9d9d9',
 											},
 										}}
 										onClick={this.handleUrlToggle}
@@ -493,10 +493,10 @@ class ConnectApp extends Component<Props, State> {
 									</Button>
 									<Button
 										type="button"
-										css={{
+										style={{
 											'&:hover': {
 												borderColor:
-													'#d9d9d9 !important',
+													'#d9d9d9',
 											},
 										}}
 										onClick={this.toggleHeadersModal}
@@ -507,7 +507,7 @@ class ConnectApp extends Component<Props, State> {
 							</Item>
 							<Item
 								{...formItemProps}
-								css={{ [mediaMin.medium]: { flex: 0.35 } }}
+								style={{ [mediaMin.medium]: { flex: 0.35 } }}
 							>
 								<AutoComplete
 									dataSource={pastApps.map(
@@ -527,7 +527,7 @@ class ConnectApp extends Component<Props, State> {
 								/>
 							</Item>
 
-							<Item css={{ marginRight: '0px !important' }}>
+							<Item style={{ marginRight: '0px' }}>
 								<Button
 									type={isConnected ? 'danger' : 'primary'}
 									ghost={isConnected}
@@ -550,20 +550,20 @@ class ConnectApp extends Component<Props, State> {
 								maskClosable={false}
 								destroyOnClose
 								title="Add Custom Headers"
-								css={{ top: 10 }}
+								style={{ top: 10 }}
 								closable={false}
 								afterClose={this.handleHeaderAfterClose}
 							>
 								<div
-									css={{
+									style={{
 										maxHeight: '500px',
 										overflow: 'auto',
 										paddingRight: 10,
 									}}
 								>
-									<Flex css={{ marginBottom: 10 }}>
+									<Flex style={{ marginBottom: 10 }}>
 										<div
-											css={{
+											style={{
 												flex: 1,
 												marginLeft: 5,
 											}}
@@ -571,7 +571,7 @@ class ConnectApp extends Component<Props, State> {
 											Key
 										</div>
 										<div
-											css={{
+											style={{
 												marginLeft: 10,
 												flex: 1,
 											}}
@@ -582,11 +582,11 @@ class ConnectApp extends Component<Props, State> {
 									{customHeaders.map((item, i) => (
 										<Flex
 											key={`header-${i}`} // eslint-disable-line
-											css={{ marginBottom: 10 }}
+											style={{ marginBottom: 10 }}
 											alignItems="center"
 										>
 											<div
-												css={{
+												style={{
 													flex: 1,
 													marginLeft: 5,
 												}}
@@ -603,7 +603,7 @@ class ConnectApp extends Component<Props, State> {
 												/>
 											</div>
 											<div
-												css={{
+												style={{
 													flex: 1,
 													marginLeft: 10,
 												}}
@@ -620,7 +620,7 @@ class ConnectApp extends Component<Props, State> {
 												/>
 											</div>
 											<div
-												css={{
+												style={{
 													marginLeft: 10,
 													minWidth: 15,
 												}}
@@ -633,7 +633,7 @@ class ConnectApp extends Component<Props, State> {
 																i,
 															)
 														}
-														css={{
+														style={{
 															cursor: 'pointer',
 														}}
 													/>
@@ -645,7 +645,7 @@ class ConnectApp extends Component<Props, State> {
 								<Button
 									icon="plus"
 									type="primary"
-									css={{ marginTop: 10, marginLeft: 5 }}
+									style={{ marginTop: 10, marginLeft: 5 }}
 									onClick={this.addMoreHeader}
 								/>
 							</Modal>

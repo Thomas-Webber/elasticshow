@@ -38,10 +38,10 @@ const TextCell = ({
 					const { value } = e.target;
 					onChange(value);
 				}}
-				css={{
+				style={{
 					height: '100% important',
-					width: '100% !important',
-					border: `${shouldAutoFocus ? 'none' : 'auto'} !important`,
+					width: '100%',
+					border: `${shouldAutoFocus ? 'none' : 'auto'}`,
 				}}
 			/>
 		) : (
@@ -52,7 +52,7 @@ const TextCell = ({
 					content={
 						<div css={popoverContent}>
 							<div
-								css={{ cursor: 'pointer' }}
+								style={{ cursor: 'pointer' }}
 								dangerouslySetInnerHTML={{ __html: children }}
 							/>
 						</div>
@@ -60,7 +60,7 @@ const TextCell = ({
 				>
 					{children && (
 						<div
-							css={{
+							style={{
 								...overflowText,
 								cursor: 'pointer',
 								height: mode === MODES.EDIT ? 45 : 30,

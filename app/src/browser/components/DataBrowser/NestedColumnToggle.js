@@ -30,7 +30,7 @@ class NestedColumnToggle extends PureComponent<Props> {
 			shouldShowNestedSwitch && (
 				<Flex
 					justifyContent="flex-end"
-					css={{
+					style={{
 						width: '100%',
 						marginBottom: 10,
 					}}
@@ -38,7 +38,7 @@ class NestedColumnToggle extends PureComponent<Props> {
 					<Checkbox
 						checked={isShowingNestedColumns}
 						onChange={this.handleNestedColumnToggle}
-						css={{
+						style={{
 							marginLeft: 10,
 						}}
 					>

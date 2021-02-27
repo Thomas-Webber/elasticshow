@@ -2,27 +2,27 @@ import colors from '../theme/colors';
 
 export default {
 	maxWidth: 200,
-	'.dejavu-browser-checkbox-input:checked + label::before': {
-		borderColor: `${colors.primary} !important`,
+	'.antd-checkbox-input:checked + label::before': {
+		borderColor: `${colors.primary}`,
 	},
-	'.dejavu-browser-checkbox-input:checked + label::after': {
-		left: 'calc(1px + 12px/5) !important',
-		width: 'calc(12px / 2) !important',
-		height: 'calc(12px / 5) !important',
-		marginTop: 'calc(12px / -2 / 2 * 0.8) !important',
-		top: '11px !important',
+	'.antd-checkbox-input:checked + label::after': {
+		left: 'calc(1px + 12px/5)',
+		width: 'calc(12px / 2)',
+		height: 'calc(12px / 5)',
+		marginTop: 'calc(12px / -2 / 2 * 0.8)',
+		top: '11px',
 	},
-	'.dejavu-browser-checkbox-input + label::before': {
+	'.antd-checkbox-input + label::before': {
 		borderRadius: '3px',
-		color: `${colors.primary} !important`,
-		borderWidth: '1px !important',
-		height: '12px !important',
-		width: '12px !important',
+		color: `${colors.primary}`,
+		borderWidth: '1px',
+		height: '12px',
+		width: '12px',
 	},
-	'.dejavu-browser-checkbox-input:hover + label::before': {
-		borderColor: `${colors.primary} !important`,
+	'.antd-checkbox-input:hover + label::before': {
+		borderColor: `${colors.primary}`,
 	},
 	label: {
-		alignItems: 'center !important',
+		alignItems: 'center',
 	},
 };

@@ -24,10 +24,10 @@ const DateCell = ({ children, onChange, format, mode }: Props) => (
 					children ? moment(children, getDateFormat(format)) : null
 				}
 				format={getDateFormat(format)}
-				css={{
-					minWidth: '100% !important',
+				style={{
+					minWidth: '100%',
 					input: {
-						paddingRight: '30px !important',
+						paddingRight: '30px',
 					},
 				}}
 				onChange={(momentObject, dateString) => {

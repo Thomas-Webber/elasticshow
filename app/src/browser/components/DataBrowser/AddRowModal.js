@@ -224,7 +224,7 @@ class AddRowModal extends Component<Props, State> {
 					onCancel={this.toggleModal}
 					onOk={this.addValue}
 					okButtonProps={{ disabled: addDataError }}
-					css={{
+					style={{
 						top: '10px',
 					}}
 					className={labelStyles}
@@ -238,7 +238,7 @@ class AddRowModal extends Component<Props, State> {
 								<Select
 									defaultValue={selectedIndex}
 									onChange={this.handleIndexChange}
-									css={{
+									style={{
 										width: '95%',
 									}}
 								>
@@ -255,7 +255,7 @@ class AddRowModal extends Component<Props, State> {
 								<Select
 									value={selectedType}
 									onChange={this.handleTypeChange}
-									css={{
+									style={{
 										width: '100%',
 									}}
 								>
@@ -281,7 +281,7 @@ class AddRowModal extends Component<Props, State> {
 							<Flex flexDirection="row">
 								<Flex
 									flexDirection="column"
-									css={{ flex: 0.2 }}
+									style={{ flex: 0.2 }}
 								>
 									<Fragment>
 										JSON
@@ -307,7 +307,7 @@ class AddRowModal extends Component<Props, State> {
 									value={addDataValue}
 									height="auto"
 									width="100%"
-									css={{
+									style={{
 										minHeight: '200px',
 										maxHeight: '500px',
 										flex: 1,
@@ -317,7 +317,7 @@ class AddRowModal extends Component<Props, State> {
 						</TabPane>
 						<TabPane tab="Editable View" key="gui">
 							<div
-								css={{
+								style={{
 									maxHeight: '350px',
 									overflow: 'auto',
 									paddingRight: 15,
@@ -326,7 +326,7 @@ class AddRowModal extends Component<Props, State> {
 								{Object.keys(properties).map(item => (
 									<div
 										key={item}
-										css={{
+										style={{
 											marginTop: '20px',
 											border: '1px solid #dfdfdf',
 											borderRadius: '4px',
