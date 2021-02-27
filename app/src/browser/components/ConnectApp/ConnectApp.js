@@ -455,9 +455,9 @@ class ConnectApp extends Component<Props, State> {
 						<Flex alignItems="center">
 							<Item
 								{...formItemProps}
-								style={{ [mediaMin.medium]: { flex: 1 } }}
+								style={{ flex: 1 }} // media.medium FIXME reponsivness
 							>
-								<Group className="mygrouphere"
+								<Group
 									style={{ display: 'flex' }}
 									compact
 								>
@@ -507,7 +507,7 @@ class ConnectApp extends Component<Props, State> {
 							</Item>
 							<Item
 								{...formItemProps}
-								style={{ [mediaMin.medium]: { flex: 0.35 } }}
+								style={{ flex: 0.35 }} // FIXME responsiness
 							>
 								<AutoComplete
 									dataSource={pastApps.map(

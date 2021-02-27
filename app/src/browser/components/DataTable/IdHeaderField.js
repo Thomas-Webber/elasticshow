@@ -79,16 +79,13 @@ class IdHeaderField extends PureComponent<Props> {
 			<StyledCell
 				style={{
 					background: colors.tableHead,
-					width: 120,
+					// width: 120,
 					fontWeight: 'bold',
 					zIndex: '101',
 					left: 0,
 					top: 0,
 					position: 'sticky',
-
-					[mediaMin.medium]: {
-						width: 250,
-					},
+					width: 250,  // FIXME responsivness
 				}}
 			>
 				<Flex

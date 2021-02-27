@@ -30,13 +30,13 @@ const MappingsIcon = ({ mapping, ...props }: Props) => {
 		case 'float':
 		case 'double':
 			return (
-				<span style={{ cursor: 'pointer' }} {...props}>
+				<span css={{ cursor: 'pointer' }} {...props}>
 					π
 				</span>
 			);
 		default:
 			return (
-				<span style={{ cursor: 'pointer' }} {...props}>{`{...}`}</span>
+				<span css={{ cursor: 'pointer' }} {...props}>{`{...}`}</span>
 			);
 	}
 };

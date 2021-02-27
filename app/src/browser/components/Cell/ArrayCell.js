@@ -49,24 +49,7 @@ class ArrayCell extends Component<Props, State> {
 				{mode === MODES.EDIT ? (
 					<Select
 						value={data.map(item => item.toString())}
-						style={{
-							width: '100%',
-							height: '100%',
-							display: 'flex',
-							justifyContent: 'left',
-							alignItems: 'center',
-							'.antd-select-selection': {
-								borderColor: 'transparent',
-								height: '100%',
-								width: '100%',
-							},
-							'.antd-select-selection__choice': {
-								height: '100%',
-							},
-							'.antd-select': {
-								width: '100%',
-							},
-						}}
+						className=""
 						mode="tags"
 						maxTagCount={0}
 						onChange={value => this.handleChange(value)}

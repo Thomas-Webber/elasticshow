@@ -123,11 +123,11 @@ class App extends Component {
 								<Navigation />
 							</Sider>
 						)}
-						<Layout style={{ overflowX: 'hidden !important' }}>
+						<Layout style={{ overflowX: 'hidden' }}>
 							<Content
 								style={{
-									margin: isShowingSideBar ? '15px 25px' : 0,
-									height: isShowingFooter ? '95%' : '100%',
+									margin: 0,
+									height: '100%',
 								}}
 							>
 								<div style={{padding: 20, background: '#fff'}}>

@@ -29,10 +29,8 @@ const Actions = ({ onReload, selectedRows, updatingRow }: Props) => (
 	<div
 		style={{
 			margin: '10px 0',
-			display: 'none',
-			[mediaMin.medium]: {
-				display: 'block',
-			},
+			// display: 'none',
+			display: 'block', // FIXME responsivness
 		}}
 	>
 		<Flex alignItems="flex-end" justifyContent="space-between">

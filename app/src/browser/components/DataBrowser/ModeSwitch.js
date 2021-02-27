@@ -41,14 +41,6 @@ class ModeSwitch extends Component<Props> {
 			<Select
 				value={mode}
 				onChange={this.handleModeChange}
-				style={{
-						backgroundColor: `${
-							mode === MODES.VIEW
-								? colors.viewing
-								: colors.editing
-						}`,
-						color: `${colors.white}`,
-				}}
 			>
 				<Option value="view">
 					<Icon type="eye" /> &nbsp; Viewing

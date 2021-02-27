@@ -10,8 +10,9 @@ Simple elasticsearch data browser web-client.
 This repository is originally a fork of appbaseio/dejavu with the following philosophy:
 - client only
 - the app is simple to build and run
+- clean code architecture with lesser dependencies
 - focused on data filtering/sorting and export
-
+- high performance
 
 ## Deployment
 ### Docker Installation
@@ -40,7 +41,10 @@ Features:
 - date filter
 - read only view
 - logout+indexes navigation
+- error message
+- i18n
 - docker
+
 
 Optimizations:
 - integrate @appbaseio/reactivesearch dep

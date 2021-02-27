@@ -1,6 +1,5 @@
 import React from 'react';
-import loaderImage from '../../images/loader.svg';
 
-const Loader = () => <img src={loaderImage} alt="loader" />;
+const Loader = () => <img src="/images/loader.svg" alt="loader" />;
 
 export default Loader;

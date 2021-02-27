@@ -191,18 +191,16 @@ class ResultSet extends React.Component<Props, State> {
 							justifyContent="center"
 							alignItems="center"
 							style={{
-								display: 'none',
-								[mediaMin.medium]: {
-									display: 'block',
-									position: 'absolute',
-									right: '390px',
-									height: '32px',
-									fontSize: '14px',
-									padding: '0 15px',
-									lineHeight: '1.5',
-									textAlign: 'center',
-									bottom: -45,
-								},
+								// display: 'none',
+								display: 'block',  // FIXME responsivness
+								position: 'absolute',
+								right: '390px',
+								height: '32px',
+								fontSize: '14px',
+								padding: '0 15px',
+								lineHeight: '1.5',
+								textAlign: 'center',
+								bottom: -45,
 							}}
 						>
 							Showing{' '}

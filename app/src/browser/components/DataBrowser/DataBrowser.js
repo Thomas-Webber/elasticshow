@@ -151,10 +151,8 @@ class DataBrowser extends Component<Props> {
 				{mappings && (
 					<Flex
 						style={{
-							marginTop: 100,
-							[mediaMin.medium]: {
-								marginTop: 10,
-							},
+							// marginTop: 100
+							marginTop: 10,  // FIXME responsivness
 						}}
 						wrap="no-wrap"
 						alignItems="center"
