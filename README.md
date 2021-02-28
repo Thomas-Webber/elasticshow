@@ -1,6 +1,6 @@
-# Frontastic: Simple elasticsearch data browser
-WORK IN PROGRESS <br>
+# ElasticShow: A simple Stateless elasticsearch data browser
 Simple elasticsearch data browser web-client.
+
 ## Features:
 - View of every elasticsearch indexes
 - Filter rows with multiple conditions
@@ -14,17 +14,12 @@ This repository is originally a fork of appbaseio/dejavu with the following phil
 - focused on data filtering/sorting and export
 - high performance
 
-## Deployment
-### Docker Installation
-```sh
-docker run -p 1342:1342 -d appbaseio/dejavu
-open http://localhost:1342/
-```
+
 ### Elasticsearch CORS configurations
 CORS settings for your Elasticsearch instance must be configured in the `elasticsearch.yml` configuration file.
 ```yaml
 http.port: 9200
-http.cors.allow-origin: 'http://localhost:1342'
+http.cors.allow-origin: 'http://localhost:1358'
 http.cors.enabled: true
 http.cors.allow-headers: X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
 http.cors.allow-credentials: true
@@ -32,23 +27,25 @@ http.cors.allow-credentials: true
 
 ## Development
 1. Run `yarn` to install the dependencies
-2. Run `./dev.sh` to compile the app, watch for changes and run a dev server on port 1358
+2. Run `yarn build` to compile the app in the `web` directory
 
 
 ## TODO
 Features:
-- debug browser components
+- table height 100%
 - date filter
 - read only view
-- logout+indexes navigation
-- error message
+- configuration
+- logout and indexes navigation
 - i18n
-- docker
+- production build and Dockerfile
 
 
 Optimizations:
 - clean dev dependencies
-- integrate @appbaseio/reactivesearch dep
+- remove @appbaseio/reactivesearch dep
+- remove lodash dep
+- remove lodash dep
 - upgrade react version
 - antd upgrade https://ant.design/docs/react/migration-v4
 - remove momentjs https://ant.design/docs/react/replace-moment
