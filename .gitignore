@@ -82,3 +82,4 @@ out.css
 *.bundle.js
 .browser/
 web/config.js
+*.svg binary

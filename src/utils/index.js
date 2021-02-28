@@ -187,13 +187,7 @@ const isEqualArray = (array1 = [], array2 = []) => {
 	return true;
 };
 
-const isExtension = () => window.location.href.indexOf('chrome-extension') > -1;
-
 const getImporterBaseUrl = () => {
-	if (isExtension()) {
-		return '/importer/index.html';
-	}
-
 	return '/importer/';
 };
 
@@ -267,5 +261,4 @@ export {
 	convertToMax,
 	normalizeSearchQuery,
 	getImporterBaseUrl,
-	isExtension,
 };

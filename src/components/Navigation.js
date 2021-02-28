@@ -8,7 +8,6 @@ import {
 	normalizeSearchQuery,
 	getImporterBaseUrl,
 	getUrlParams,
-	isExtension,
 } from '../utils'
 
 
@@ -17,8 +16,6 @@ type Props = {
 	isConnected: boolean,
 	history: any,
 };
-
-const { Item } = Menu;
 
 const getImporterSearchParams = () => {
 	let params = window.location.search;
@@ -48,49 +45,30 @@ const navHandler = (key, history) => {
 };
 
 const Navigation = ({ indexes, isConnected, history }: Props) => {
-	const routeName = window.location.pathname.substring(1);
-	let defaultSelectedKey = routeName;
+	// const routeName = window.location.pathname.substring(1);
+	let defaultSelectedKey = CONFIG.indexes[0].name;
 
-	if (!routeName) {
-		defaultSelectedKey = 'browse';
-	}
-
-	// special case for chrome extension
-	if (isExtension()) {
-		const { route } = getUrlParams(window.location.search);
-		if (route) {
-			defaultSelectedKey = route;
-		} else {
-			defaultSelectedKey = 'browse';
-		}
+	const items = [];
+	for (const index of CONFIG.indexes) {
+		items.push(
+			<Menu.Item key={index.name} title={index.title}>
+			<Icon type="table" />
+			<span>{index.title}</span>
+		</Menu.Item>
+		)
 	}
 
 	return (
-		<Menu
+		<Menu theme="dark"
 			defaultSelectedKeys={[defaultSelectedKey]}
 			mode="inline"
 			onSelect={({ key }) => navHandler(key, history)}
 		>
-			<Item key="browse">
-				<Icon type="table" />
-				Data Browser
-			</Item>
-			<Item key="import">
-				<Icon type="upload" />
-				Import Data
-			</Item>
-			{(indexes.length <= 1 || !isConnected) && (
-				<Item key="query">
-					<Icon type="search" />
-					Query Explorer
-				</Item>
-			)}
-			{(indexes.length <= 1 || !isConnected) && (
-				<Item key="preview">
-					<Icon type="experiment" />
-					Search Preview
-				</Item>
-			)}
+			{items}
+			<Menu.Item key="/logout" title="Logout" style={{position:'absolute', bottom: '0'}}>
+			<Icon type="logout" />
+			<span>Logout</span>
+			</Menu.Item>
 		</Menu>
 	);
 };

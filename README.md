@@ -27,7 +27,7 @@ http.cors.allow-credentials: true
 
 ## Development
 1. Run `yarn` to install the dependencies
-2. Run `yarn build` to compile the app in the `web` directory
+2. Run `yarn dev` to watch for updates and start the webserver
 
 
 ## TODO
@@ -35,15 +35,17 @@ Features:
 - read only view
 - logout and indexes navigation
 - date filter
-- i18n
 - production build and Dockerfile
 
 
-Optimizations:
+Improvements:
+- query explorer
+- on resize reload table
+- i18n
 - clean dev dependencies
 - remove @appbaseio/reactivesearch dep
 - remove lodash dep
-- remove lodash dep
+- improvement table loading icon
 - upgrade react version
 - antd upgrade https://ant.design/docs/react/migration-v4
 - remove momentjs https://ant.design/docs/react/replace-moment
