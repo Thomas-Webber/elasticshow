@@ -47,6 +47,7 @@ Features:
 
 
 Optimizations:
+- clean dev dependencies
 - integrate @appbaseio/reactivesearch dep
 - upgrade react version
 - antd upgrade https://ant.design/docs/react/migration-v4

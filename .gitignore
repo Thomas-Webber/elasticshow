@@ -11,6 +11,7 @@ lerna-debug.log
 .DS_Store
 lib
 dist
+*.min.css
 
 # Logs
 logs
@@ -78,5 +79,5 @@ typings/
 /dist
 out.js
 out.css
-
+*.bundle.js
 .browser/
