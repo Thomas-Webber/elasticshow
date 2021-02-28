@@ -205,7 +205,6 @@ class ResultSet extends React.Component<Props, State> {
 								},
 							}}
 						>
-							Showing{' '}
 							<b>{numberWithCommas(stats.displayedResults)}</b> of
 							total{' '}
 							<b>

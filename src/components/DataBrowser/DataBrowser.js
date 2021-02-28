@@ -15,7 +15,7 @@ import DataTableHeader from '../DataTable/DataTableHeader';
 import NestedColumnToggle from './NestedColumnToggle';
 import GlobalSearch from './GlobalSearch';
 import ResultList from './ResultSet';
-import CloneApp from './CloneApp';
+// import CloneApp from './CloneApp';
 import ApplyQueryBanner from './ApplyQueryBanner';
 
 import { fetchMappings, updateReactiveList } from '../../actions';
@@ -40,7 +40,6 @@ type Props = {
 	types: string[],
 	headers: any[],
 	updateReactiveList: () => void,
-	hasCloneApp: boolean,
 };
 
 class DataBrowser extends Component<Props> {
@@ -76,8 +75,6 @@ class DataBrowser extends Component<Props> {
 			indexes,
 			headers,
 		} = this.props;
-		let { hasCloneApp } = this.props;
-		hasCloneApp = hasCloneApp !== undefined ? hasCloneApp : true;
 		const { credentials, url } = parseUrl(rawUrl);
 		let baseProps = {
 			url,
@@ -119,9 +116,9 @@ class DataBrowser extends Component<Props> {
 									border: `1px solid ${colors.tableBorderColor}`,
 									borderRadius: 3,
 									width: '100%',
-									height:
-										window.innerHeight -
-										(hideAppSwitcher ? 250 : 350),
+									height: window.innerHeight - 220,
+										// window.innerHeight -
+										// (hideAppSwitcher ? 250 : 350),
 									overflow: 'visible',
 								}}
 							>
@@ -159,7 +156,6 @@ class DataBrowser extends Component<Props> {
 						wrap="no-wrap"
 						alignItems="center"
 					>
-						{indexes.length <= 1 && hasCloneApp && <CloneApp />}
 						<AddRowModal />
 						<AddFieldModal />
 					</Flex>

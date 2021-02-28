@@ -27,4 +27,7 @@ module.exports = {
     path: path.resolve(__dirname, 'web'),
     filename: 'index.bundle.js',
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'web'),
+  },
 };
