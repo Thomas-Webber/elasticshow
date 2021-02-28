@@ -448,6 +448,10 @@ class ConnectApp extends Component<Props, State> {
 				? this.props.showHeaders
 				: true;
 
+    if (CONFIG.readonly) {
+			return null;
+		}
+
 		return (
 			<div>
 				{isShowingAppSwitcher && showHeaders && (

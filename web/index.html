@@ -3,22 +3,22 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<title>Frontastic</title>
+	<title>ElasticShow</title>
 	<link rel="stylesheet" href="/antd.min.css">
-	<link rel="stylesheet" href="/out.css">
 </head>
 
 <body>
 	<div id="root"></div>
 </body>
 
+<script src="/config.js"></script>
 <script>
 	function addScript(src) {
 		var s = document.createElement('script');
 		s.setAttribute('src', src);
 		document.body.appendChild(s);
 	}
-	addScript('/index.bundle.js?data=' + Date.now())
+	addScript('/index.bundle.js?date=' + Date.now())
 </script>
 
 </html>

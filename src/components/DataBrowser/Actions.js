@@ -54,7 +54,7 @@ const Actions = ({ onReload, selectedRows, updatingRow }: Props) => (
 						</Button>
 					</Fragment>
 				)}
-				<ModeSwitch />
+				{!CONFIG.readonly && <ModeSwitch />}
 			</div>
 			<Flex alignItems="center">
 				<SelectedFilters

@@ -98,6 +98,8 @@ class DataBrowser extends Component<Props> {
 		const { appswitcher } = getUrlParams(window.location.search);
 		const hideAppSwitcher = appswitcher && appswitcher === 'false';
 
+		const heightMargin = CONFIG.readonly ? 150 : 205;
+
 		return (
 			<Skeleton loading={isLoading} active>
 				{!isLoading && !isDataLoading && mappings && (
@@ -116,9 +118,7 @@ class DataBrowser extends Component<Props> {
 									border: `1px solid ${colors.tableBorderColor}`,
 									borderRadius: 3,
 									width: '100%',
-									height: window.innerHeight - 220,
-										// window.innerHeight -
-										// (hideAppSwitcher ? 250 : 350),
+									height: window.innerHeight - heightMargin,
 									overflow: 'visible',
 								}}
 							>
@@ -145,7 +145,7 @@ class DataBrowser extends Component<Props> {
 						</ReactiveBase>
 					</div>
 				)}
-				{mappings && (
+				{mappings && !CONFIG.readonly && (
 					<Flex
 						css={{
 							marginTop: 100,

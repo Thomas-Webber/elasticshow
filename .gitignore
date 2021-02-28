@@ -81,3 +81,4 @@ out.js
 out.css
 *.bundle.js
 .browser/
+web/config.js

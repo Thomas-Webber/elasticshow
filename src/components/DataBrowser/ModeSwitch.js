@@ -42,7 +42,7 @@ class ModeSwitch extends Component<Props> {
 				value={mode}
 				onChange={this.handleModeChange}
 				css={{
-					'.dejavu-browser-select-selection': {
+					'.ant-select-selection': {
 						backgroundColor: `${
 							mode === MODES.VIEW
 								? colors.viewing
@@ -50,7 +50,7 @@ class ModeSwitch extends Component<Props> {
 						}`,
 						color: `${colors.white}`,
 					},
-					'.dejavu-browser-select-arrow': {
+					'.ant-select-arrow': {
 						color: `${colors.white}`,
 					},
 				}}

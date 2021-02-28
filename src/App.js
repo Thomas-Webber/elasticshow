@@ -5,12 +5,8 @@ import { Provider } from 'react-redux';
 import { mediaMin } from '@divyanshu013/media';
 import Navigation from './components/Navigation';
 import NoMatch from './components/NoMatch';
-// import OldDejavuBanner from './components/OldDejavuBanner';
 
-// import logo from './images/dejavu-logo.svg';
-
-// const SearchPreview = lazy(() => import('./components/SearchPreview'));
-// const QueryExplorer = lazy(() => import('./components/QueryExplorer'));
+import logo from './images/dejavu-logo.svg';
 
 import { ConfigProvider } from 'antd';
 import DataBrowserContainer from './components/DataBrowserContainer/DataBrowserContainer';
@@ -164,34 +160,31 @@ class App extends Component {
 			isShowingVideo,
 		} = this.state;
 
+		const mainPadding = CONFIG.readonly ? '0 20px' : '15px 20px 0 20px';
+
 		return (
 			<Provider store={store}>
 				<BrowserRouter>
-					<Layout className="heremyclass"
-						style={{ minHeight: isShowingSideBar ? '100vh' : 'auto' }}
+					<Layout
+						style={{ minHeight: isShowingSideBar ? '100vh' : 'auto'}}
 					>
 						{isShowingSideBar && (
 							<Sider
 								theme="light"
 								style={{display: 'block'}}
 							>
-								{/* <img
+								<img
 									src={logo}
 									alt="Dejavu"
 									width="100%"
 									style={{ padding: 25 }}
-								/> */}
+								/>
 								<Navigation />
 							</Sider>
 						)}
 						<Layout style={{ overflowX: 'hidden' }}>
-							<Content
-								style={{
-									margin: 0,
-									height: '100%',
-								}}
-							>
-								<div style={{padding: 20, background: '#fff'}}>
+							<Content style={{margin: 0, height: '100%', backgroundColor: '#fff'}} >
+								<div style={{padding: mainPadding, background: '#fff', height: '100%', overflow: 'hidden'}}>
 									<Switch>
 										<Route
 											exact

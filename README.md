@@ -32,11 +32,9 @@ http.cors.allow-credentials: true
 
 ## TODO
 Features:
-- table height 100%
-- date filter
 - read only view
-- configuration
 - logout and indexes navigation
+- date filter
 - i18n
 - production build and Dockerfile
 
