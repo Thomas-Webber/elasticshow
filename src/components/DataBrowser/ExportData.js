@@ -85,7 +85,7 @@ class ExportData extends Component<Props, State> {
 		selectedType: this.props.indexTypeMap[
 			Object.keys(this.props.indexTypeMap)[0]
 		][0],
-		applyCurrentQuery: false,
+		applyCurrentQuery: true,
 		totalCount: 0,
 	};
 
@@ -334,6 +334,7 @@ class ExportData extends Component<Props, State> {
 							Download as CSV
 						</Button>,
 						<Button
+							hidden={CONFIG.simple_export}
 							key="json"
 							type="primary"
 							onClick={this.onJSONClick}
@@ -362,7 +363,7 @@ class ExportData extends Component<Props, State> {
 							</Item>
 						</Col>
 						<Col span={12}>
-							<Item label="Document Type">
+							<Item label="Document Type" hidden={CONFIG.simple_export}>
 								<Select
 									value={selectedType}
 									onChange={this.handleTypeChange}
