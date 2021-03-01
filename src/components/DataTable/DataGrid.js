@@ -25,7 +25,7 @@ const CELL_STYLE = {
 	padding: '10px',
 };
 
-const ID_WIDTH = isMobile.any ? 120 : 250;
+const ID_WIDTH = (CONFIG.readonly && CONFIG.hide_readonly_id) ? 0 : (isMobile.any ? 120 : 250);
 
 const isMetaField = field => META_FIELDS.indexOf(field) > -1;
 
@@ -186,6 +186,8 @@ class DataGrid extends Component<Props, State> {
 				<ScrollSync>
 					{({ onScroll, scrollTop }) => (
 						<Flex wrap="nowrap">
+							{ !(CONFIG.readonly && CONFIG.hide_readonly_id) && (
+
 							<Grid
 								overscanColumnCount={0}
 								overscanRowCount={OVERSCAN_COUNT}
@@ -206,6 +208,8 @@ class DataGrid extends Component<Props, State> {
 								scrollTop={scrollTop}
 								width={ID_WIDTH}
 							/>
+							)}
+
 							<Scrollbars
 								ref={this.dataScrollRef}
 								onScroll={this.handleScroll}

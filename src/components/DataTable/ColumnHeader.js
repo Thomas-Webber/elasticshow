@@ -116,9 +116,7 @@ class DataColumnHeader extends Component<Props> {
 						}}
 					>
 						<Flex alignItems="center" wrap="nowrap">
-							{mappings[appname] &&
-								mappings[appname][mapProp] &&
-								mappings[appname][mapProp][col] && (
+							{mappings[appname] && mappings[appname][mapProp] && mappings[appname][mapProp][col] && !(CONFIG.readonly && CONFIG.hide_readonly_mapping_info) && (
 									<MappingsDropdown
 										mapping={
 											mappings[appname][mapProp][col]

@@ -31,7 +31,7 @@ const DataTableHeader = ({
 	const mappingCols = isShowingNestedColumns
 		? nestedVisibleColumns
 		: visibleColumns;
-	const columns = ['_id', ...mappingCols];
+	const columns = (CONFIG.readonly && CONFIG.hide_readonly_id) ? [...mappingCols] : ['_id', ...mappingCols];
 
 	if (columns.length >= 1) {
 		return (

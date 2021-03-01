@@ -19,7 +19,6 @@ import applyQuery from './applyQuery';
 import selectAll from './selectAll';
 import stats from './stats';
 import analyzers from './analyzers';
-import batteriesReducers from '../batteries/modules/reducers';
 
 const appReducer = combineReducers({
 	app,
@@ -40,7 +39,6 @@ const appReducer = combineReducers({
 	selectAll,
 	stats,
 	analyzers,
-	...batteriesReducers,
 });
 
 const initialState = appReducer({}, {});
