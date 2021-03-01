@@ -30,7 +30,6 @@ const DataBrowserWrapper = props => (
 			<section>
 				<DefaultFlashMessage />
 				<DefaultConnectApp {...props} />
-				{/* eslint-disable-next-line react/prop-types */}
 				<DataBrowserContainer />
 			</section>
 		</BrowserRouter>
@@ -44,18 +43,7 @@ class App extends Component {
 	};
 
 	componentDidMount() {
-		const { sidebar, footer } = getUrlParams(window.location.search);
-
-		if (sidebar && sidebar === 'false') {
-			this.setSideBarVisibility(false);
-		}
-
-		if (footer && footer === 'false') {
-			this.setFooterVisibility(false);
-		}
-
 		const localConnections = getLocalStorageItem(constants.LOCAL_CONNECTIONS);
-
 		if (!localConnections) {
 			setLocalStorageData(
 				constants.LOCAL_CONNECTIONS,
@@ -66,73 +54,26 @@ class App extends Component {
 		}
 	}
 
-	setSideBarVisibility = isShowingSideBar => {
-		this.setState({
-			isShowingSideBar,
-		});
-	};
-
-	setFooterVisibility = isShowingFooter => {
-		this.setState({
-			isShowingFooter,
-		});
-	};
-
-	showVideoModal = () => {
-		this.setState({
-			isShowingVideo: true,
-		});
-	};
-
-	hideVideoModal = () => {
-		this.setState({
-			isShowingVideo: false,
-		});
-	};
-
 	renderExtensionRoutes = () => {
-		const { route } = getUrlParams(window.location.search);
-
-		if (route) {
-			// if (route === 'preview') {
-			// 	return withSuspense(SearchPreview);
-			// }
-
-			// if (route === 'query') {
-			// 	return withSuspense(QueryExplorer);
-			// }
-
-			return DataBrowserWrapper;
-		}
-
+		// const { route } = getUrlParams(window.location.search);
 		return DataBrowserWrapper;
 	};
 
 	render() {
-		const {
-			isShowingSideBar,
-			isShowingFooter,
-			isShowingVideo,
-		} = this.state;
-
 		const mainPadding = CONFIG.readonly ? '0 20px' : '15px 20px 0 20px';
 
 		return (
 			<Provider store={store}>
 				<BrowserRouter>
-					<Layout
-						style={{ minHeight: isShowingSideBar ? '100vh' : 'auto'}}
-					>
-						{isShowingSideBar && (
-							<Layout.Sider theme="dark" >
-								<img
-									src="/images/elasticshow.svg"
-									width="100%"
-									style={{ padding: 25 }}
-								/>
-								<Navigation />
-							</Layout.Sider>
-						)}
+					<Layout style={{ minHeight: '100vh' }} >
+						<Layout.Sider theme="dark" >
+							<img
+								src="/images/elasticshow.svg"
+								width="100%"
+								style={{ padding: 25 }}
+							/>
+							<Navigation />
+						</Layout.Sider>
 						<Layout style={{ overflowX: 'hidden' }}>
 							<Layout.Content style={{margin: 0, height: '100%', backgroundColor: '#fff'}} >
 								<div style={{padding: mainPadding, background: '#fff', height: '100%', overflow: 'hidden'}}>

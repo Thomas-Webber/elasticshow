@@ -15,7 +15,6 @@ import DataTableHeader from '../DataTable/DataTableHeader';
 import NestedColumnToggle from './NestedColumnToggle';
 import GlobalSearch from './GlobalSearch';
 import ResultList from './ResultSet';
-// import CloneApp from './CloneApp';
 import ApplyQueryBanner from './ApplyQueryBanner';
 
 import { fetchMappings, updateReactiveList } from '../../actions';
@@ -40,6 +39,7 @@ type Props = {
 	types: string[],
 	headers: any[],
 	updateReactiveList: () => void,
+	ukey: string,
 };
 
 class DataBrowser extends Component<Props> {
@@ -56,7 +56,7 @@ class DataBrowser extends Component<Props> {
 
 	transformRequest = request => {
 		const newRequest = { ...request };
-		if (newRequest.headers) {
+		if (newRequest.headers) { // TODO remove url from query
 			Object.keys(newRequest.headers).forEach(headerItem => {
 				newRequest.headers[headerItem] = decodeURIComponent(
 					newRequest.headers[headerItem],

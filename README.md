@@ -32,7 +32,6 @@ http.cors.allow-credentials: true
 
 ## TODO
 Features:
-- read only view
 - logout and indexes navigation
 - date filter
 - production build and Dockerfile

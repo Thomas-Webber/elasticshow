@@ -12,29 +12,33 @@ import { getIsLoading, getIsConnected, getKey } from '../../reducers/app';
 type Props = {
 	isConnected: boolean,
 	isLoading: boolean,
-	key: string,
+	ukey: string,
 };
 
 const DataBrowserContainer = ({
 	isConnected,
 	isLoading,
-	key,
-}: Props) => (
-	<Skeleton loading={isLoading} active>
-		{isConnected && <DataBrowser key={key} />}
-	</Skeleton>
-);
+	ukey,
+}: Props) => {
+	return (
+		<Skeleton loading={isLoading} active>
+			{isConnected && ukey && <DataBrowser ukey={ukey} />}
+		</Skeleton>
+	);
+}
 
-const mapStateToProps = state => ({
-	isConnected: getIsConnected(state),
-	isLoading: getIsLoading(state),
-	key: getKey(state),
-});
+const mapStateToProps = state => {
+	return {
+		isConnected: getIsConnected(state),
+		isLoading: getIsLoading(state),
+		ukey: `${getKey(state)}`,
+	}
+}
 
 DataBrowserContainer.propTypes = {
 	isLoading: bool.isRequired,
 	isConnected: bool.isRequired,
-	key: string.isRequired,
+	ukey: string.isRequired,
 };
 
 export default connect(mapStateToProps)(DataBrowserContainer);

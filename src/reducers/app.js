@@ -1,8 +1,9 @@
+import { config } from '@fortawesome/fontawesome-svg-core';
 import { APP } from '../actions/constants';
 
 const initialState = {
 	appname: null,
-	url: null,
+	url: CONFIG.elasticsearch_url,
 	isConnected: false,
 	isLoading: false,
 	headers: [],
