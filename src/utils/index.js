@@ -35,6 +35,11 @@ const getUrlParams = url => {
 	);
 };
 
+function getUrlIndexParams() {
+	const match = location.pathname.match(/\/index\/([a-zA-Z0-9-]+$)/);
+	return (match !== null) ? match[1] : '';
+}
+
 const getHeaders = rawUrl => {
 	const headers = {
 		'Content-Type': 'application/json',
@@ -261,4 +266,5 @@ export {
 	convertToMax,
 	normalizeSearchQuery,
 	getImporterBaseUrl,
+	getUrlIndexParams,
 };

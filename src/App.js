@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Navigation from './components/Navigation';
 import NoMatch from './components/NoMatch';
-
-
-import DataBrowserContainer from './components/DataBrowserContainer/DataBrowserContainer';
+import {getUrlIndexParams} from './utils';
+import DataBrowserContainer from './components/DataBrowser/DataBrowserContainer';
 import configureStore from './store';
 
 // shared components
@@ -14,11 +13,11 @@ import DefaultFlashMessage from './components/ErrorFlashMessage/FlashMessage';
 import DefaultConnectApp from './components/ConnectApp/ConnectApp';
 
 // shared reducers
-import * as appReducers from './reducers/app';
-import * as mappingsReducers from './reducers/mappings';
+// import * as appReducers from './reducers/app';
+// import * as mappingsReducers from './reducers/mappings';
 
 // shared utils
-import { getUrlParams, getLocalStorageItem, setLocalStorageData } from './utils';
+import { getLocalStorageItem, setLocalStorageData } from './utils';
 import * as constants from './constants';
 
 const store = configureStore();
@@ -26,13 +25,11 @@ const store = configureStore();
 
 const DataBrowserWrapper = props => (
 	<Provider store={store}>
-		<BrowserRouter>
-			<section>
-				<DefaultFlashMessage />
-				<DefaultConnectApp {...props} />
-				<DataBrowserContainer />
-			</section>
-		</BrowserRouter>
+		<section>
+			<DefaultFlashMessage />
+			<DefaultConnectApp {...props} />
+			<DataBrowserContainer {...props} index={props.match.params.index} />
+		</section>
 	</Provider>
 );
 
@@ -54,14 +51,8 @@ class App extends Component {
 		}
 	}
 
-	renderExtensionRoutes = () => {
-		// const { route } = getUrlParams(window.location.search);
-		return DataBrowserWrapper;
-	};
-
 	render() {
 		const mainPadding = CONFIG.readonly ? '0 20px' : '15px 20px 0 20px';
-
 		return (
 			<Provider store={store}>
 				<BrowserRouter>
@@ -72,7 +63,7 @@ class App extends Component {
 								width="100%"
 								style={{ padding: 25 }}
 							/>
-							<Navigation />
+							<Navigation {...this.props} />
 						</Layout.Sider>
 						<Layout style={{ overflowX: 'hidden' }}>
 							<Layout.Content style={{margin: 0, height: '100%', backgroundColor: '#fff'}} >
@@ -82,6 +73,12 @@ class App extends Component {
 											exact
 											path="/"
 											render={props =>DataBrowserWrapper(props)}
+										/>
+
+										<Route
+											exact
+											path="/index/:index"
+											render={props => DataBrowserWrapper(props)}
 										/>
 										<Route
 											path="/404"

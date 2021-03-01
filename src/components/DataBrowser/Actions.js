@@ -75,4 +75,5 @@ const mapStateToProps = state => ({
 	updatingRow: getUpdatingRow(state),
 });
 
+
 export default connect(mapStateToProps)(Actions);

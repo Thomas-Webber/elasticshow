@@ -8,7 +8,7 @@ import { mediaMin } from '@divyanshu013/media';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-import { withRouter } from 'react-router-dom';
+import { withRouter, useParams } from 'react-router-dom';
 import {
 	getAppname,
 	getUrl,
@@ -31,6 +31,7 @@ import {
 	isMultiIndexApp,
 	saveAppToLocalStorage,
 	normalizeSearchQuery,
+	getUrlIndexParams
 } from '../../utils';
 
 import { getMode } from '../../reducers/mode';
@@ -116,31 +117,15 @@ class ConnectApp extends Component<Props, State> {
 		let url = '';
 		const { mode, isConnected, isHidden, forceReconnect } = this.props;
 		const {
-			appname: queryApp,
-			url: queryUrl,
 			mode: queryMode,
-			sidebar,
-			footer,
-			appswitcher,
 			route,
 		} = getUrlParams(window.location.search);
-		const URLParams =
-			this.props.URLParams !== undefined ? this.props.URLParams : true;
-
-		if (queryApp && queryUrl) {
-			appname = queryApp;
-			url = queryUrl;
-		} else {
-			const { appname: propApp, url: propUrl } = this.props;
-			appname = propApp || '';
-			url = propUrl || '';
-		}
-
-		this.setState({
-			appname,
-			url,
-		});
-
+		const URLParams = this.props.URLParams !== undefined ? this.props.URLParams : true;
+		
+		const { appname: propApp, url: propUrl } = this.props;
+		appname = getUrlIndexParams() || CONFIG.indexes[0].name;
+		url = propUrl || CONFIG.elasticsearch_url;
+		this.setState({appname, url});
 		// when you want to explicitly trigger reconnect even when app is connect pass `forceReconnect=true`
 
 		if (appname && url && (forceReconnect || !isConnected)) {
@@ -166,39 +151,22 @@ class ConnectApp extends Component<Props, State> {
 			this.setAppSwitcher(false);
 		}
 
-		if (!queryApp && !queryUrl && URLParams) {
-			let searchQuery = `?appname=${appname}&url=${url}`;
+		if (location.pathname == "/" && URLParams) {
 			const currentMode = queryMode || mode;
-			searchQuery += `&mode=${currentMode}`;
-
-			if (sidebar) {
-				searchQuery += `&sidebar=${sidebar}`;
-			}
-
-			if (footer) {
-				searchQuery += `&footer=${footer}`;
-			}
-
-			if (appswitcher) {
-				searchQuery += `&appswitcher=${appswitcher}`;
-			}
-
+			let searchQuery = `?&mode=${currentMode}`;
 			if (route) {
 				searchQuery += `&route=${route}`;
 			}
 
 			this.props.setMode(currentMode);
 			this.props.history.push({
+				pathname: '/index/' + appname,
 				search: normalizeSearchQuery(searchQuery),
 			});
 		}
 
 		if (queryMode) {
 			this.props.setMode(queryMode);
-		}
-
-		if (appswitcher && appswitcher === 'false') {
-			this.setAppSwitcher(false);
 		}
 
 		const customHeaders = getCustomHeaders(appname);
@@ -228,7 +196,7 @@ class ConnectApp extends Component<Props, State> {
 		});
 	};
 
-	handleChange = e => {
+	handleChangeUrl = e => {
 		const { value, name } = e.target;
 		this.setState({
 			[name]: value,
@@ -275,7 +243,7 @@ class ConnectApp extends Component<Props, State> {
 		if (route) {
 			searchQuery += `&route=${route}`;
 		}
-
+		debugger
 		if (this.props.isConnected) {
 			this.props.disconnectApp();
 			this.props.setMode(MODES.VIEW);
@@ -469,7 +437,7 @@ class ConnectApp extends Component<Props, State> {
 										name="url"
 										value={url}
 										placeholder="URL for cluster goes here. e.g.  https://username:password@scalr.api.appbase.io"
-										onChange={this.handleChange}
+										onChange={this.handleChangeUrl}
 										disabled={isConnected}
 										required
 										css={{

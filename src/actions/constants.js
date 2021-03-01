@@ -92,6 +92,11 @@ const ANALYZERS = {
 	SET_ANALYZERS: 'SET_ANALYZERS',
 };
 
+const NAVIGATION = {
+	SET_ROUTE: 'SET_ROUTE'
+};
+
+
 export {
 	APP,
 	CELL,
@@ -111,4 +116,5 @@ export {
 	APPLY_QUERY,
 	STATS,
 	ANALYZERS,
+	NAVIGATION
 };

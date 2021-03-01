@@ -3,7 +3,7 @@ import { APP } from '../actions/constants';
 
 const initialState = {
 	appname: null,
-	url: CONFIG.elasticsearch_url,
+	url: null,
 	isConnected: false,
 	isLoading: false,
 	headers: [],

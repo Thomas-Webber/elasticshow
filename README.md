@@ -1,5 +1,5 @@
-# ElasticShow: A simple Stateless elasticsearch data browser
-Simple elasticsearch data browser web-client.
+# ElasticShow: A simple Stateless elasticsearch index browser
+Elasticsearch data browser web-client. View and search all your data with style.
 
 ## Features:
 - View of every elasticsearch indexes
@@ -30,14 +30,16 @@ http.cors.allow-credentials: true
 2. Run `yarn dev` to watch for updates and start the webserver
 
 
-## TODO
-Features:
-- logout and indexes navigation
+## Contributing and TODO
+Feel free to fork and contribute, here are the features goals and improvements to do:
+
+###Features:
 - date filter
+- help page
+- refresh DataBrowser when multiple indexes in config
 - production build and Dockerfile
 
-
-Improvements:
+###Improvements:
 - query explorer
 - on resize reload table
 - i18n
@@ -45,6 +47,11 @@ Improvements:
 - remove @appbaseio/reactivesearch dep
 - remove lodash dep
 - improvement table loading icon
-- upgrade react version
-- antd upgrade https://ant.design/docs/react/migration-v4
+- remove react warnings
+- upgrade to typescripts
+- upgrade react and antd version https://ant.design/docs/react/migration-v4
 - remove momentjs https://ant.design/docs/react/replace-moment
+
+
+## Licence
+MIT

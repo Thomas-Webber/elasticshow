@@ -1,77 +1,59 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Menu, Icon } from 'antd';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {getIndexes} from '../reducers/mappings'
 import {getIsConnected} from '../reducers/app'
-import {
-	normalizeSearchQuery,
-	getImporterBaseUrl,
-	getUrlParams,
-} from '../utils'
+
+
+function getNavigationItems() {
+	let nav = CONFIG.indexes.map((index) => {
+		return {title: index.title, link: '/index/' + index.name, icon: 'table', css: null}
+	});
+	nav.push({title: 'Help support', link: '/help', icon: 'question-circle', css: {position:'absolute', bottom: '40px'}});
+	nav.push({title: 'Logout', link: '/logout', icon: 'logout', css: {position:'absolute', bottom: '0'}});
+	return nav;
+}
 
 
 type Props = {
 	indexes: string[],
 	isConnected: boolean,
 	history: any,
+	onReload: () => void,
 };
+class Navigation extends Component<Props> {
+	defaultSelectedKey = CONFIG.indexes[0].name;
+	navigationItems = [];
 
-const getImporterSearchParams = () => {
-	let params = window.location.search;
-
-	if (params) {
-		params = normalizeSearchQuery(params);
-		params += '&sidebar=true';
-	} else {
-		params = '?sidebar=true';
+	componentDidMount() {
+		this.navigationItems = getNavigationItems();
 	}
 
-	return params;
-};
-
-const navHandler = (key, history) => {
-	switch (key) {
-		case 'import':
-			window.location.href = `${getImporterBaseUrl()}${getImporterSearchParams()}`;
-			break;
-		case 'browse':
-			history.push('/');
-			break;
-		default:
-			history.push(key);
-			break;
-	}
-};
-
-const Navigation = ({ indexes, isConnected, history }: Props) => {
-	// const routeName = window.location.pathname.substring(1);
-	let defaultSelectedKey = CONFIG.indexes[0].name;
-
-	const items = [];
-	for (const index of CONFIG.indexes) {
-		items.push(
-			<Menu.Item key={index.name} title={index.title}>
-			<Icon type="table" />
-			<span>{index.title}</span>
-		</Menu.Item>
-		)
+	navHandler(key) {
+		let item = this.navigationItems[parseInt(key.key)]
+		this.props.history.push(item.link);
 	}
 
-	return (
-		<Menu theme="dark"
-			defaultSelectedKeys={[defaultSelectedKey]}
-			mode="inline"
-			onSelect={({ key }) => navHandler(key, history)}
-		>
-			{items}
-			<Menu.Item key="/logout" title="Logout" style={{position:'absolute', bottom: '0'}}>
-			<Icon type="logout" />
-			<span>Logout</span>
-			</Menu.Item>
-		</Menu>
-	);
-};
+	render() {
+		return (
+			<Menu theme="dark"
+				defaultSelectedKeys={[this.defaultSelectedKey]}
+				mode="inline"
+				onSelect={this.navHandler.bind(this)}
+			>
+			{
+			this.navigationItems.map((x, i) => (
+				<Menu.Item key={i} title={x.title} style={x.css}>
+					<Icon type={x.icon} />
+					<span>{x.title}</span>
+				</Menu.Item>
+			))
+			}
+			</Menu>
+		);
+	}
+}
 
 const mapStateToProps = state => ({
 	indexes: getIndexes(state),

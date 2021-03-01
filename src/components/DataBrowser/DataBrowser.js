@@ -40,12 +40,14 @@ type Props = {
 	headers: any[],
 	updateReactiveList: () => void,
 	ukey: string,
+	index: string
 };
 
 class DataBrowser extends Component<Props> {
 	headerRef = createRef();
 
 	componentDidMount() {
+		console.log(this.props);
 		this.props.fetchMappings();
 	}
 
@@ -56,7 +58,7 @@ class DataBrowser extends Component<Props> {
 
 	transformRequest = request => {
 		const newRequest = { ...request };
-		if (newRequest.headers) { // TODO remove url from query
+		if (newRequest.headers) {
 			Object.keys(newRequest.headers).forEach(headerItem => {
 				newRequest.headers[headerItem] = decodeURIComponent(
 					newRequest.headers[headerItem],
@@ -67,6 +69,7 @@ class DataBrowser extends Component<Props> {
 	};
 
 	render() {
+		console.log("DataBrowser render");
 		const {
 			url: rawUrl,
 			isLoading,
@@ -122,17 +125,12 @@ class DataBrowser extends Component<Props> {
 									overflow: 'visible',
 								}}
 							>
-								<AutoSizer
-									css={{
+								<AutoSizer css={{
 										height: '100% !important',
-										width: '100% !important',
-									}}
-								>
+										width: '100% !important'}} >
 									{({ height, width }) => (
 										<>
-											<DataTableHeader
-												ref={this.headerRef}
-											/>
+											<DataTableHeader ref={this.headerRef}/>
 											<ResultList
 												height={height}
 												width={width}
