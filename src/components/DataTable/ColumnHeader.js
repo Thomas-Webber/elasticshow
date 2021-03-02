@@ -157,6 +157,7 @@ class DataColumnHeader extends Component<Props> {
 													termFilterIndex
 												]
 											}
+											type={mappings[appname][mapProp][col].type}
 										/>
 									))}
 								<button

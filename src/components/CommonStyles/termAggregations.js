@@ -1,7 +1,7 @@
 import colors from '../theme/colors';
 
 export default {
-	maxWidth: 200,
+	minWidth: '230px',
 	'.ant-checkbox-input:checked + label::before': {
 		borderColor: `${colors.primary} !important`,
 	},

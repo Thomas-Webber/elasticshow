@@ -33,24 +33,22 @@ http.cors.allow-credentials: true
 ## Contributing and TODO
 Feel free to fork and contribute, here are the features goals and improvements to do:
 
-###Features:
+### Features:
 - date filter
 - help page
 - refresh DataBrowser when multiple indexes in config
+- i18n
 - production build and Dockerfile
 
-###Improvements:
+
+### Improvements:
 - query explorer
-- on resize reload table
-- i18n
-- clean dev dependencies
-- remove @appbaseio/reactivesearch dep
-- remove lodash dep
-- improvement table loading icon
+- merge @appbaseio/reactivesearch dep
+- on resize re-render table
 - remove react warnings
-- upgrade to typescripts
+- upgrade to typescript
 - upgrade react and antd version https://ant.design/docs/react/migration-v4
-- remove momentjs https://ant.design/docs/react/replace-moment
+- remove moment dependency https://ant.design/docs/react/replace-moment
 
 
 ## Licence
