@@ -47,7 +47,6 @@ class DataBrowser extends Component<Props> {
 	headerRef = createRef();
 
 	componentDidMount() {
-		console.log(this.props);
 		this.props.fetchMappings();
 	}
 

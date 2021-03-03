@@ -127,8 +127,16 @@ class TermAggregation extends React.Component<Props, State> {
 				size={1000}
 				showLoadMore={true}
 				showMissing={true}
-				missingLabel=""
+				transformData={(data) => {
+					return data.map((item) => { 
+						if (item.key === null) {
+							item.key = "N/A"
+						}
+						return {key: item.key, doc_count: item.doc_count};
+					});
+				}}
 				css={termAggregationStyles}
+				placeholder="Search"
 				innerClass={{
 					input: `ant-input ${css`
 						height: 32px;
@@ -181,7 +189,6 @@ class TermAggregation extends React.Component<Props, State> {
 					</Flex>
 				}
 				placement="bottomRight"
-				trigger="click"
 				arrowPointAtCenter
 			>
 				<FontAwesomeIcon icon={faFilter} className={filterIconStyles} />

@@ -7,8 +7,9 @@ import {getIsConnected} from '../reducers/app'
 
 
 function getNavigationItems() {
-	let nav = CONFIG.indexes.map((index) => {
-		return {title: index.title, link: '/index/' + index.name, icon: 'table', css: null}
+	let nav = Object.keys(CONFIG.indexes).map((index_key) => {
+		const index = CONFIG.indexes[index_key];
+		return {title: index.title, link: '/index/' + index_key, icon: 'table', css: null}
 	});
 	nav.push({title: 'Help support', link: '/help', icon: 'question-circle', css: {position:'absolute', bottom: '40px'}});
 	nav.push({title: 'Logout', link: '/logout', icon: 'logout', css: {position:'absolute', bottom: '0'}});
@@ -23,7 +24,7 @@ type Props = {
 	onReload: () => void,
 };
 class Navigation extends Component<Props> {
-	defaultSelectedKey = CONFIG.indexes[0].name;
+	defaultSelectedKey = Object.keys(CONFIG.indexes)[0];
 	navigationItems = [];
 
 	componentDidMount() {

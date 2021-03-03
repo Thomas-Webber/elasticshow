@@ -34,10 +34,9 @@ http.cors.allow-credentials: true
 Feel free to fork and contribute, here are the features goals and improvements to do:
 
 ### Features:
-- date filter
 - help page
-- refresh DataBrowser when multiple indexes in config
 - i18n
+- refresh DataBrowser when multiple indexes in config
 - production build and Dockerfile
 
 
