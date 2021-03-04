@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Navigation from './components/Navigation';
 import NoMatch from './components/NoMatch';
+import {HelpComponent} from './components/Help';
 import {getUrlIndexParams} from './utils';
 import DataBrowserContainer from './components/DataBrowser/DataBrowserContainer';
 import configureStore from './store';
@@ -57,26 +58,23 @@ class App extends Component {
 			<Provider store={store}>
 				<BrowserRouter>
 					<Layout style={{ minHeight: '100vh' }} >
-						<Layout.Sider theme="dark" >
-							<img
-								src="/images/elasticshow.svg"
-								width="100%"
-								style={{ padding: 25 }}
-							/>
+						<Layout.Sider theme="dark">
 							<Navigation {...this.props} />
 						</Layout.Sider>
 						<Layout style={{ overflowX: 'hidden' }}>
 							<Layout.Content style={{margin: 0, height: '100%', backgroundColor: '#fff'}} >
 								<div style={{padding: mainPadding, background: '#fff', height: '100%', overflow: 'hidden'}}>
 									<Switch>
-										<Route
-											exact
+										<Route exact
 											path="/"
 											render={props =>DataBrowserWrapper(props)}
 										/>
+										<Route exact
+											path="/help"
+											component={HelpComponent}
+										/>
 
-										<Route
-											exact
+										<Route exact
 											path="/index/:index"
 											render={props => DataBrowserWrapper(props)}
 										/>

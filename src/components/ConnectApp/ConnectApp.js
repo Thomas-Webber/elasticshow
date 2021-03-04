@@ -123,7 +123,7 @@ class ConnectApp extends Component<Props, State> {
 		const URLParams = this.props.URLParams !== undefined ? this.props.URLParams : true;
 		
 		const { appname: propApp, url: propUrl } = this.props;
-		appname = getUrlIndexParams() || Object.keyes(CONFIG.indexes)[0];
+		appname = getUrlIndexParams() || Object.keys(CONFIG.indexes)[0];
 		url = propUrl || CONFIG.elasticsearch_url;
 		this.setState({appname, url});
 		// when you want to explicitly trigger reconnect even when app is connect pass `forceReconnect=true`

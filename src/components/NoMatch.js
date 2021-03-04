@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Button } from 'antd';
+import { Icon, Button, Result } from 'antd';
 import { Link } from 'react-router-dom';
 
 const NoMatch = () => (
@@ -11,21 +11,18 @@ const NoMatch = () => (
 			alignItems: 'center',
 		}}
 	>
-		<Icon
-			type="frown"
-			theme="outlined"
-			style={{ fontSize: 44, marginBottom: 20 }}
+		<br></br>
+		<Result
+    status="404"
+    title="404"
+    subTitle="Sorry, the page you visited does not exist."
+		extra={(
+			<Link to="/">
+				<Button type="primary" size="large">
+					Go Back
+				</Button>
+			</Link>)}
 		/>
-		<h2>Page not found</h2>
-		<p>
-			Sorry, we couldn
-			{"'"}t find what you are looking for
-		</p>
-		<Link to="/">
-			<Button type="primary" size="large">
-				Go Back
-			</Button>
-		</Link>
 	</section>
 );
 

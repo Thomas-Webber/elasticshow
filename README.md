@@ -27,14 +27,13 @@ http.cors.allow-credentials: true
 
 ## Development
 1. Run `yarn` to install the dependencies
-2. Run `yarn dev` to watch for updates and start the webserver
+2. Run `yarn dev` to watch for updates and start the webserver on port 1358
 
 
 ## Contributing and TODO
 Feel free to fork and contribute, here are the features goals and improvements to do:
 
 ### Features:
-- help page
 - i18n
 - refresh DataBrowser when multiple indexes in config
 - production build and Dockerfile
