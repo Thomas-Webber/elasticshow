@@ -83,3 +83,4 @@ out.css
 .browser/
 web/config.js
 *.svg binary
+web/index.html

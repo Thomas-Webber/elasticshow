@@ -36,7 +36,7 @@ class HelpComponent extends Component<Props> {
               <List.Item style={{paddingLeft: 0, marginLeft:0}}>
                 <List.Item.Meta 
                   title={CONFIG.indexes[index_key].fields[field_key].title + " (" + field_key + ")"}
-                  description={CONFIG.indexes[index_key].fields[field_key].description}
+                  description={CONFIG.indexes[index_key].fields[field_key].help}
                 />
                 <br/>
               </List.Item>

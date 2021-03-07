@@ -34,9 +34,9 @@ http.cors.allow-credentials: true
 Feel free to fork and contribute, here are the features goals and improvements to do:
 
 ### Features:
-- i18n
-- refresh DataBrowser when multiple indexes in config
+- fix help page
 - production build and Dockerfile
+- refresh DataBrowser when multiple indexes in config
 
 
 ### Improvements:
