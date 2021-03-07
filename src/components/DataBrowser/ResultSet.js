@@ -5,6 +5,7 @@ import { ReactiveList } from '@appbaseio/reactivesearch';
 import { connect } from 'react-redux';
 import styled, { css } from 'react-emotion';
 import { mediaMin } from '@divyanshu013/media';
+import { withTranslation } from 'react-i18next';
 
 import DataTable from '../DataTable';
 import Flex from '../Flex';
@@ -205,7 +206,7 @@ class ResultSet extends React.Component<Props, State> {
 								},
 							}}
 						>
-							<b>{numberWithCommas(stats.displayedResults)}</b> of total{' '}
+							<b>{numberWithCommas(stats.displayedResults)}</b> {this.props.t('browser.of_total')} {' '}
 							<b>
 								{numberWithCommas(
 									typeof stats.numberOfResults === 'object'
@@ -276,4 +277,4 @@ const mapDispatchToProps = {
 	onSetStats: setStats,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ResultSet);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(ResultSet));

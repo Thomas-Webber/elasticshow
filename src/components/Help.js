@@ -1,34 +1,34 @@
 import React, {Component} from 'react';
-import { Menu, Icon, List, Typography, Divider} from 'antd';
+import {List, Typography, Divider} from 'antd';
+import {withTranslation} from 'react-i18next';
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph } = Typography;
 
 
-export class HelpComponent extends Component<Props> {
+class HelpComponent extends Component<Props> {
   render() {
-    const index_key = "has-avis-dm";
     return (
       <Typography>
-        <Title>Centre d'aide aux client</Title>
-        <Title level={3}>Table des matières </Title>
+        <Title>{this.props.t('help.title')}</Title>
+        <Title level={3}>{this.props.t('help.toc')}</Title>
         <ul>
           {Object.keys(CONFIG.indexes).map(key => (
             <li><a href={'#' + key}>{CONFIG.indexes[key].title}</a></li>
           ))}
           
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">{this.props.t('nav.contact')}</a></li>
         </ul>
         <Divider />
 
         {Object.keys(CONFIG.indexes).map(index_key => (
           <>
           <Title level={1} id={index_key}>{CONFIG.indexes[index_key].title} </Title>
-          <Title level={2}>Informations importantes</Title>
+          <Title level={2}>{this.props.t('help.important')}</Title>
           {CONFIG.help[index_key].map(content => (
             <Paragraph>{content}</Paragraph>
           ))}
 
-          <Title level={2}>Detail de chaque élément</Title>
+          <Title level={2}>{this.props.t('help.item_detail')}</Title>
           <List
             dataSource={Object.keys(CONFIG.indexes[index_key].fields)}
             size="large"
@@ -46,21 +46,23 @@ export class HelpComponent extends Component<Props> {
           </>
         ))}
         
-        <Title id="contact">Contact</Title>
+        <Title id="contact">{this.props.t('nav.contact')}</Title>
         <Paragraph>
-          Vous pouvez contacter notre centre de support :
+          {this.props.t('help.contact_title')}
           <ul>
-            <li>pour des questions éventuelles sur le fonctionnement du produit,</li>
-            <li>pour signaler un bug dans l'interface</li>
-            <li>pour signaler une corruption de données,</li>
+            <li>{this.props.t('help.contact_title1')}</li>
+            <li>{this.props.t('help.contact_title2')}</li>
+            <li >{this.props.t('help.contact_title3')}</li>
           </ul>
         </Paragraph>
-        <Paragraph>
-        Contactez-nous par email à l'adresse: <a href={'mailto:' + CONFIG.support_email}>{CONFIG.support_email}</a>. Nous répondons sous un jour ouvré.
+        <Paragraph >
+          <span dangerouslySetInnerHTML={{
+          __html: this.props.t('help.contact_line', {email: CONFIG.support_email})
+        }}></span>
         </Paragraph>
       </Typography>
-
     );
   }
-
 }
+
+export default withTranslation()(HelpComponent);

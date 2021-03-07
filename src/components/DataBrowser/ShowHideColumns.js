@@ -3,6 +3,7 @@
 import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
 import { Button, Checkbox, Dropdown } from 'antd';
+import {withTranslation} from 'react-i18next';
 
 import {
 	getColumns,
@@ -173,7 +174,7 @@ class ShowHideColumns extends Component<Props, State> {
 							}}
 							onChange={this.handleSelectAll}
 						>
-							Select All
+							{this.props.t('browser.select_all')}
 						</Checkbox>
 						<Group
 							options={allMappingColumns}
@@ -218,4 +219,4 @@ const mapDispatchToProps = {
 	setNestedVisibleColumns,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShowHideColumns);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(ShowHideColumns));

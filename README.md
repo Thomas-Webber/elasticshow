@@ -41,13 +41,13 @@ Feel free to fork and contribute, here are the features goals and improvements t
 
 ### Improvements:
 - query explorer
-- merge @appbaseio/reactivesearch dep
 - on resize re-render table
+- bug browser first filter popup
+- upgrade emotion/css
+- merge @appbaseio/reactivesearch dep
 - remove react warnings
-- upgrade to typescript
 - upgrade react and antd version https://ant.design/docs/react/migration-v4
 - remove moment dependency https://ant.design/docs/react/replace-moment
-
 
 ## Licence
 MIT

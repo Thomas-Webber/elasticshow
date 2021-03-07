@@ -6,7 +6,7 @@ import { MultiList, DynamicRangeSlider, DateRange, CategorySearch } from '@appba
 import { css } from 'react-emotion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
-
+import {withTranslation} from 'react-i18next';
 import Flex from '../Flex';
 
 import filterIconStyles from '../CommonStyles/filterIcons';
@@ -134,7 +134,7 @@ class TermAggregation extends React.Component<Props, State> {
 					return data;
 				}}
 				css={termAggregationStyles}
-				placeholder="Search"
+				placeholder={this.props.t('browser.search')}
 				innerClass={{
 					input: `ant-input ${css`
 						height: 32px;
@@ -165,7 +165,7 @@ class TermAggregation extends React.Component<Props, State> {
 					</Flex>
 				)}}
 				loader="Loading..."
-				renderNoResults={() => <p>No Results Found!</p>}
+				renderNoResults={() => <p>{this.props.t('browser.no_results')}</p>}
 			/>
 		);
 	}
@@ -176,7 +176,7 @@ class TermAggregation extends React.Component<Props, State> {
 				content={this.state.hasMounted && this.renderPopoverSearchComponent()}
 				title={
 					<Flex justifyContent="space-between" alignItems="center">
-						<span>Filter</span>
+						<span>{this.props.t('browser.filter')}</span>
 						<Icon
 							type="sync"
 							css={css`
@@ -195,4 +195,4 @@ class TermAggregation extends React.Component<Props, State> {
 	}
 }
 
-export default TermAggregation;
+export default withTranslation()(TermAggregation);

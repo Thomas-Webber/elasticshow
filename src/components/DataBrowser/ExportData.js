@@ -4,6 +4,7 @@ import { Modal, Button, Spin, Alert, Row, Col, Select, Checkbox } from 'antd';
 import { connect } from 'react-redux';
 import { unparse } from 'papaparse';
 import { saveAs } from 'file-saver';
+import {withTranslation} from 'react-i18next';
 
 import { getIndexTypeMap } from '../../reducers/mappings';
 import { getUrl } from '../../reducers/app';
@@ -314,7 +315,7 @@ class ExportData extends Component<Props, State> {
 					css={{ marginRight: '5px' }}
 					onClick={this.toggleModal}
 				>
-					Export
+					{this.props.t('browser.export')}
 				</Button>
 
 				<Modal
@@ -323,7 +324,7 @@ class ExportData extends Component<Props, State> {
 					onCancel={this.toggleModal}
 					destroyOnClose
 					maskClosable={false}
-					title="Export Data"
+					title={this.props.t('browser.export.title')}
 					footer={[
 						<Button
 							key="csv"
@@ -331,7 +332,7 @@ class ExportData extends Component<Props, State> {
 							onClick={this.onCSVClick}
 							disabled={isDownloading || isFetchingCount || error}
 						>
-							Download as CSV
+							{this.props.t('browser.export.download_as', {format: 'CSV'})}
 						</Button>,
 						<Button
 							hidden={CONFIG.simple_export}
@@ -340,13 +341,13 @@ class ExportData extends Component<Props, State> {
 							onClick={this.onJSONClick}
 							disabled={isDownloading || isFetchingCount || error}
 						>
-							Download as JSON
+						{this.props.t('browser.export.download_as', {format: 'JSON'})}
 						</Button>,
 					]}
 				>
 					<Row>
 						<Col span={12}>
-							<Item label="Index">
+							<Item label={this.props.t('browser.export.index')}>
 								<Select
 									defaultValue={selectedIndex}
 									onChange={this.handleIndexChange}
@@ -385,20 +386,12 @@ class ExportData extends Component<Props, State> {
 						description={
 							<React.Fragment>
 								<div>
-									Data is exported in set of <b>{MAX_DATA}</b>{' '}
-									documents and in a sequential manner.
+								{this.props.t('browser.export.info1', {max_count: MAX_DATA})}
 								</div>
 							</React.Fragment>
 						}
 					/>
 					<br />
-					{!isFetchingCount && selectedChunk && (
-						<p>
-							Now you can export <b>{selectedChunk}</b> documents
-							in CSV or JSON format by selecting appropriate
-							option.
-						</p>
-					)}
 
 					{!isFetchingCount &&
 						searchAfterData &&
@@ -440,7 +433,7 @@ class ExportData extends Component<Props, State> {
 								justifyContent="center"
 							>
 								<Spin css={{ marginBottom: '20px' }} />
-								We are fetching the result data, please wait...
+								{this.props.t('browser.export.fetching')}
 							</Flex>
 						)}
 						<Checkbox
@@ -450,8 +443,7 @@ class ExportData extends Component<Props, State> {
 								width: '100%',
 							}}
 						>
-							Export {numberWithCommas(stats.totalResults || 0)}{' '}
-							documents (current view)
+							{this.props.t('browser.export.checkbox', {count: numberWithCommas(stats.totalResults || 0)})}
 						</Checkbox>
 					</Flex>
 				</Modal>
@@ -472,4 +464,4 @@ const mapDispatchToProps = {
 	addDataRequest,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExportData);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(ExportData));

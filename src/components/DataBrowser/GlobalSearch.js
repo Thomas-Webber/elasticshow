@@ -5,6 +5,7 @@ import { DataSearch } from '@appbaseio/reactivesearch';
 import { css } from 'react-emotion';
 import { Icon } from 'antd';
 import { connect } from 'react-redux';
+import {withTranslation} from 'react-i18next'
 
 import {
 	getNestedSearchableColumns,
@@ -85,6 +86,7 @@ class GlobalSearch extends Component<Props, State> {
 			<div css={{ position: 'relative' }}>
 				{hasMounted && (
 					<DataSearch
+						placeholder={this.props.t('browser.search')}
 						componentId="GlobalSearch"
 						autosuggest={false}
 						dataField={searchableColumns}
@@ -127,4 +129,4 @@ const mapStateToProps = state => ({
 	mode: getMode(state),
 });
 
-export default connect(mapStateToProps)(GlobalSearch);
+export default connect(mapStateToProps)(withTranslation()(GlobalSearch));

@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Navigation from './components/Navigation';
 import NoMatch from './components/NoMatch';
-import {HelpComponent} from './components/Help';
+import HelpComponent from './components/Help';
 import {getUrlIndexParams} from './utils';
 import DataBrowserContainer from './components/DataBrowser/DataBrowserContainer';
 import configureStore from './store';

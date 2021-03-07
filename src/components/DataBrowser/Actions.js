@@ -5,6 +5,7 @@ import { Button } from 'antd';
 import { connect } from 'react-redux';
 import { mediaMin } from '@divyanshu013/media';
 import { SelectedFilters } from '@appbaseio/reactivesearch';
+import {withTranslation} from 'react-i18next';
 
 import Flex from '../Flex';
 import ShowHideColumn from './ShowHideColumns';
@@ -25,7 +26,7 @@ type Props = {
 	updatingRow?: any,
 };
 
-const Actions = ({ onReload, selectedRows, updatingRow }: Props) => (
+const Actions = ({ onReload, selectedRows, updatingRow, t }: Props) => (
 	<div
 		css={{
 			margin: '10px 0',
@@ -50,7 +51,7 @@ const Actions = ({ onReload, selectedRows, updatingRow }: Props) => (
 							onClick={onReload}
 							css={{ marginRight: '5px' }}
 						>
-							Reload
+							{t('browser.reload')}
 						</Button>
 					</Fragment>
 				)}
@@ -64,7 +65,7 @@ const Actions = ({ onReload, selectedRows, updatingRow }: Props) => (
 				/>
 				<SortFilter />
 				<PageSize />
-				<ShowHideColumn />
+				{!CONFIG.readonly && <ShowHideColumn />}
 			</Flex>
 		</Flex>
 	</div>
@@ -76,4 +77,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps)(Actions);
+export default connect(mapStateToProps)(withTranslation()(Actions));
