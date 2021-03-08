@@ -1,7 +1,7 @@
 {
 	"name": "elasticshow",
 	"description": "Stateless elasticsearch UI",
-	"version": "0.1.0",
+	"license": "MIT",
 	"authors": [
 		"Thomas Webber"
 	],
@@ -89,6 +89,7 @@
 	},
 	"scripts": {
 		"dev": "webpack serve --mode=development --port 1358 --liveReload",
-		"build": "webpack --mode=production"
+		"build": "webpack --mode=production",
+		"docker": "source .env && docker build . -t $DOCKER_TAG"
 	}
 }

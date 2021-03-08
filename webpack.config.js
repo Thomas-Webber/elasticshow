@@ -2,14 +2,23 @@ const path = require('path');
 const svgToMiniDataURI = require('mini-svg-data-uri');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CONFIG = require('./web/config.js');
-
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = (env, argv) => {
   const conf = { mode: argv.mode }
   if (argv.mode === 'development') {
     // conf.devtool = 'eval'
     console.log('here dev');
+  } else {
+    conf.optimization = {
+      minimizer: [
+        new TerserPlugin({
+          extractComments: false,
+        }),
+      ],
+    }
   }
+
   return {
     ...conf,
     module: {
@@ -42,6 +51,7 @@ module.exports = (env, argv) => {
         index: 'index.html'
       }
     },
+
 
     plugins: [new HtmlWebpackPlugin({
       title: CONFIG.title,
