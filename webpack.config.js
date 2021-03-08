@@ -6,16 +6,9 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = (env, argv) => {
   const conf = { mode: argv.mode }
-  if (argv.mode === 'development') {
-    // conf.devtool = 'eval'
-    console.log('here dev');
-  } else {
+  if (argv.mode === 'production') {
     conf.optimization = {
-      minimizer: [
-        new TerserPlugin({
-          extractComments: false,
-        }),
-      ],
+      minimizer: [ new TerserPlugin({extractComments: false}) ],
     }
   }
 
@@ -40,22 +33,24 @@ module.exports = (env, argv) => {
       ],
     },
     entry: './src/index.js',
+    
     output: {
       path: path.resolve(__dirname, 'web'),
       publicPath: '/',
-      filename: 'index.bundle.js',
+      filename: 'bundle.js',
     },
+
     devServer: {
       contentBase: path.join(__dirname, 'web'),
       historyApiFallback: {
-        index: 'index.html'
+        index: '/index.html'
       }
     },
-
 
     plugins: [new HtmlWebpackPlugin({
       title: CONFIG.title,
       hash: true,
+      minify: false,
       template: 'web/index.html.ejs',
       filename: 'index.html',
       inject: 'body',

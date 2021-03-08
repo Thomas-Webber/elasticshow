@@ -24,7 +24,7 @@ class HelpComponent extends Component<Props> {
           <>
           <Title level={1} id={index_key}>{CONFIG.indexes[index_key].title} </Title>
           <Title level={2}>{this.props.t('help.important')}</Title>
-          {CONFIG.help[index_key].map(content => (
+          {CONFIG.indexes[index_key].infos.map(content => (
             <Paragraph>{content}</Paragraph>
           ))}
 

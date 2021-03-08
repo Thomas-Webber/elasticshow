@@ -6,13 +6,11 @@
   <title><%= htmlWebpackPlugin.options.title %></title>
   <link rel="stylesheet" href="/antd.min.css">
   <link rel="shortcut icon" href="/images/favicon.png" type="image/png">
+  <script src="/config.js?date=<%= htmlWebpackPlugin.options.__date %>"></script>
 </head>
 
 <body>
   <div id="root"></div>
-  <script src="/config.js?date=<%= htmlWebpackPlugin.options.__date %>"></script>
-
-  <script defer="defer" src="/index.bundle.js?f0782d88e028815ece59"></script>
 </body>
 
 </html>

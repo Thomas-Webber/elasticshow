@@ -22,7 +22,6 @@ const DataBrowserContainer = ({
 	ukey,
 	index,
 }: Props) => {
-	console.log(index);
 	return (
 		<Skeleton loading={isLoading} active>
 			{isConnected && ukey && <DataBrowser ukey={ukey} index={index} />}

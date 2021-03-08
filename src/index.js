@@ -15,12 +15,12 @@ i18n
       queryStringParams: { v: '1.0.0' },
     },
     lng: CONFIG.language || navigator.language.substring(0,2),
-    fallbackLng: 'en',
+    fallbackLng: CONFIG.language || 'en',
     react: {
       useSuspense: false,
       wait: false,
     },
-    debug: true,
+    debug: false,
     keySeparator: false,
   });
 
