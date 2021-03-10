@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Menu, Icon } from 'antd';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import {getIndexes} from '../reducers/mappings'
+// import {getIndexes} from '../reducers/mappings'
 import {getIsConnected} from '../reducers/app'
 import { NAVIGATION } from '../actions/constants';
 import { withTranslation } from 'react-i18next';
@@ -15,17 +15,17 @@ const NAVS = [
 ]
 
 type Props = {
-	indexes: string[],
-	isConnected: boolean,
 	history: any,
-	onReload: () => void,
 };
 class Navigation extends Component<Props> {
+
 	navHandler(key) {
 		this.props.history.push(NAVS[parseInt(key.key)]);
 	}
 
 	render() {
+		let selectedNav = Math.max(0, NAVS.indexOf(this.props.location.pathname))
+
 		return (
 			<>
 			<img src="/images/logo.svg"
@@ -33,7 +33,7 @@ class Navigation extends Component<Props> {
 								style={{padding: 25 }}
 							/>
 			<Menu theme="dark"
-				defaultSelectedKeys={['0']}
+				defaultSelectedKeys={[`${selectedNav}`]}
 				defaultOpenKeys={['sub1']}
 				mode="inline"
 				onSelect={this.navHandler.bind(this)}
@@ -67,9 +67,6 @@ class Navigation extends Component<Props> {
 	}
 }
 
-const mapStateToProps = state => ({
-	indexes: getIndexes(state),
-	isConnected: getIsConnected(state),
-});
+const mapStateToProps = state => ({});
 
 export default connect(mapStateToProps)(withRouter(withTranslation()(Navigation)));

@@ -17,6 +17,7 @@ import {
 	setNestedVisibleColumns,
 } from '../../actions/mappings';
 import colors from '../theme/colors';
+import CONFIG from '../../../web/config';
 
 const { Group } = Checkbox;
 
@@ -100,20 +101,20 @@ class ShowHideColumns extends Component<Props, State> {
 	};
 
 	handleVisibleColumnsChange = visibleColumns => {
-		const metaIndex = visibleColumns.indexOf('_index');
-		const metaType = visibleColumns.indexOf('_type');
+		// const metaIndex = visibleColumns.indexOf('_index');
+		// const metaType = visibleColumns.indexOf('_type');
 		let currentVissibleColums = visibleColumns;
 
 		// to append meta fields at the beginning of array
-		if (metaType > -1 && metaType > 1) {
-			currentVissibleColums.splice(metaType, 1);
-			currentVissibleColums = ['_type', ...currentVissibleColums];
-		}
+		// if (metaType > -1 && metaType > 1) {
+		// 	currentVissibleColums.splice(metaType, 1);
+		// 	currentVissibleColums = ['_type', ...currentVissibleColums];
+		// }
 
-		if (metaIndex > -1 && metaIndex > 1) {
-			currentVissibleColums.splice(metaIndex, 1);
-			currentVissibleColums = ['_index', ...currentVissibleColums];
-		}
+		// if (metaIndex > -1 && metaIndex > 1) {
+			// currentVissibleColums.splice(metaIndex, 1);
+			// currentVissibleColums = ['_index', ...currentVissibleColums];
+		// }
 
 		if (this.props.isShowingNestedColumns) {
 			this.props.setNestedVisibleColumns(currentVissibleColums);

@@ -1,32 +1,30 @@
 // @flow
 
-import React from 'react';
+import React, {Component} from 'react';
 import { Skeleton } from 'antd';
 import { connect } from 'react-redux';
 import { bool, string } from 'prop-types';
 
 import DataBrowser from './DataBrowser';
-
+import {connectApp} from '../../actions';
 import { getIsLoading, getIsConnected, getKey } from '../../reducers/app';
+
 
 type Props = {
 	isConnected: boolean,
 	isLoading: boolean,
 	ukey: string,
-	index: string,
+	connectApp: (string, string, any) => void,
 };
 
-const DataBrowserContainer = ({
-	isConnected,
-	isLoading,
-	ukey,
-	index,
-}: Props) => {
+const DataBrowserContainer = (props) => {
+	// props.connectApp(props.match.params.index, CONFIG.es_url);
+	
 	return (
-		<Skeleton loading={isLoading} active>
-			{isConnected && ukey && <DataBrowser ukey={ukey} index={index} />}
+		<Skeleton loading={props.isLoading} active>
+			{props.isConnected && props.ukey && <DataBrowser />}
 		</Skeleton>
-	);
+	)
 }
 
 const mapStateToProps = state => {
@@ -37,10 +35,14 @@ const mapStateToProps = state => {
 	}
 }
 
+const mapDispatchToProps = {
+	connectApp
+}
+
 DataBrowserContainer.propTypes = {
 	isLoading: bool.isRequired,
 	isConnected: bool.isRequired,
 	ukey: string.isRequired,
 };
 
-export default connect(mapStateToProps)(DataBrowserContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(DataBrowserContainer);

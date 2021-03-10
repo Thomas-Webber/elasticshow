@@ -1,4 +1,5 @@
 import { config } from '@fortawesome/fontawesome-svg-core';
+import CONFIG from '../../web/config';
 import { APP } from '../actions/constants';
 
 const initialState = {
@@ -6,7 +7,7 @@ const initialState = {
 	url: null,
 	isConnected: false,
 	isLoading: false,
-	headers: [],
+	headers: CONFIG.es_headers || [],
 	key: Date.now(),
 };
 

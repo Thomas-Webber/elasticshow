@@ -111,8 +111,15 @@ class ConnectApp extends Component<Props, State> {
 			: [{ key: '', value: '' }],
 	};
 
+	componentDidUpdate() {
+		const index = this.props.match.params.index;
+		if (this.props.appname && index && this.props.appname !== index) {
+			this.props.disconnectApp();
+			this.props.connectApp(index, this.state.url);
+		}
+	}
+
 	componentDidMount() {
-		// sync state from url
 		let appname = '';
 		let url = '';
 		const { mode, isConnected, isHidden, forceReconnect } = this.props;
@@ -124,7 +131,7 @@ class ConnectApp extends Component<Props, State> {
 		
 		const { appname: propApp, url: propUrl } = this.props;
 		appname = getUrlIndexParams() || Object.keys(CONFIG.indexes)[0];
-		url = propUrl || CONFIG.elasticsearch_url;
+		url = propUrl || CONFIG.es_url;
 		this.setState({appname, url});
 		// when you want to explicitly trigger reconnect even when app is connect pass `forceReconnect=true`
 
@@ -149,20 +156,6 @@ class ConnectApp extends Component<Props, State> {
 
 		if (isConnected && isHidden) {
 			this.setAppSwitcher(false);
-		}
-
-		if (location.pathname == "/" && URLParams) {
-			const currentMode = queryMode || mode;
-			let searchQuery = `?&mode=${currentMode}`;
-			if (route) {
-				searchQuery += `&route=${route}`;
-			}
-
-			this.props.setMode(currentMode);
-			this.props.history.push({
-				pathname: '/index/' + appname,
-				search: normalizeSearchQuery(searchQuery),
-			});
 		}
 
 		if (queryMode) {
@@ -243,20 +236,14 @@ class ConnectApp extends Component<Props, State> {
 		if (route) {
 			searchQuery += `&route=${route}`;
 		}
-		debugger
+
 		if (this.props.isConnected) {
 			this.props.disconnectApp();
 			this.props.setMode(MODES.VIEW);
 			this.props.setHeaders([]);
-			// this.setState({
-			// 	customHeaders: [{ key: '', value: '' }],
-			// 	appname: '',
-			// 	url: '',
-			// });
 			this.props.history.push({
 				search: normalizeSearchQuery(searchQuery),
 			});
-			// window.location.reload(true);
 		} else if (appname && url) {
 			if (shouldConnect(pathname, appname)) {
 				this.props.connectApp(appname, url, customHeaders);
@@ -267,7 +254,6 @@ class ConnectApp extends Component<Props, State> {
 				const newApps = [...pastApps];
 
 				const pastApp = pastApps.find(app => app.appname === appname);
-
 				if (!pastApp) {
 					newApps.push({
 						appname,
@@ -728,15 +714,9 @@ http.cors.allow-credentials: true`}
 }
 
 const mapStateToProps = (state, props) => {
-	const getURL = () => {
-		if (props.url && props.url.trim() !== '') return props.url;
-		if (props.credentials)
-			return `https://${props.credentials}@scalr.api.appbase.io`;
-		return getUrl(state);
-	};
 	return {
 		appname: props.app || getAppname(state),
-		url: getURL(),
+		url: getUrl(state),
 		isConnected: getIsConnected(state),
 		isLoading: getIsLoading(state),
 		mode: getMode(state),

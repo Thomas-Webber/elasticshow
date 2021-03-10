@@ -68,7 +68,6 @@ class DataBrowser extends Component<Props> {
 	};
 
 	render() {
-		console.log("DataBrowser render");
 		const {
 			url: rawUrl,
 			isLoading,

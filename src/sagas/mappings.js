@@ -23,6 +23,7 @@ import {
 	hasNestedColumns,
 } from '../utils/mappings';
 import CustomError from '../utils/CustomError';
+import CONFIG from '../../web/config';
 
 const IGNORE_META_TYPES = ['~logs', '.percolator', '~percolator', '_default_'];
 
@@ -98,15 +99,21 @@ export function* handleFetchMappings() {
 				},
 			};
 
-			const allColumns = [
-				...META_FIELDS,
-				...extractColumns(mappings[appname], 'properties'),
-			];
-
-			const allNestedColumns = [
-				...META_FIELDS,
-				...extractColumns(mappings[appname], 'nestedProperties'),
-			];
+			let allColumns = [];
+			let allNestedColumns = [];
+			if (CONFIG.readonly) {
+				allColumns = extractColumns(mappings[appname], 'properties')
+				allNestedColumns = extractColumns(mappings[appname], 'nestedProperties')
+			} else {
+				allColumns = [
+					...META_FIELDS,
+					...extractColumns(mappings[appname], 'properties'),
+				];
+				allNestedColumns = [
+					...META_FIELDS,
+					...extractColumns(mappings[appname], 'nestedProperties'),
+				];
+			}
 
 			let visibleColumns = allColumns.filter(
 				col =>

@@ -65,7 +65,7 @@ const Actions = ({ onReload, selectedRows, updatingRow, t }: Props) => (
 				/>
 				<SortFilter />
 				<PageSize />
-				{!CONFIG.readonly && <ShowHideColumn />}
+				<ShowHideColumn />
 			</Flex>
 		</Flex>
 	</div>

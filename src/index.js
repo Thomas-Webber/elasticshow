@@ -12,7 +12,7 @@ i18n
   .init({
     backend: {
       loadPath: '/i18n/{{lng}}.json',
-      queryStringParams: { v: '1.0.0' },
+      queryStringParams: { v: '0.1.0' },
     },
     lng: CONFIG.language || navigator.language.substring(0,2),
     fallbackLng: CONFIG.language || 'en',
