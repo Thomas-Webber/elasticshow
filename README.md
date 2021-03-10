@@ -34,8 +34,8 @@ http.cors.allow-credentials: true
 ## Contributing and TODO
 Feel free to fork and contribute, here are the features goals and improvements to do:
 
-### Features:
-- refresh DataBrowser when multiple indexes in config
+### Feature
+Search filter for text columns
 
 
 ### Improvements:

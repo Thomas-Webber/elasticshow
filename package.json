@@ -91,6 +91,6 @@
 		"css": "cp node_modules/antd/dist/antd.min.css web/",
 		"dev": "webpack serve --mode=development --port 1358 --liveReload",
 		"build": "webpack --mode=production",
-		"docker": "source .env && docker build . -t $DOCKER_TAG"
+		"release": "tar -Pczf web.tar.gz web/"
 	}
 }

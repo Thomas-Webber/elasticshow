@@ -76,8 +76,9 @@ typings/
 /dist
 out.js
 out.css
-*.bundle.js
+bundle.js
 .browser/
 web/config.js
 *.svg binary
 web/index.html
+*.gz
